@@ -1,6 +1,6 @@
 ---
 title: "Week 1 Worklog"
-date: 2025-09-10
+date: 2025-11-13
 weight: 1
 chapter: false
 pre: " <b> 1.1. </b> "
@@ -11,14 +11,17 @@ pre: " <b> 1.1. </b> "
 - Connect and get acquainted with members of First Cloud Journey.
 - Understand basic AWS services, how to use the console & CLI.
 
+**Time Period:** 29/09/2025 - 05/10/2025
+
 ### Tasks to be carried out this week:
 
-| Day | Task                                                                                                                                                                                                                                                                                                    | Start Date | Completion Date | Reference Material                        |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------- | --------------- | ----------------------------------------- |
-| 1   | - Get acquainted with FCJ members <br> - Read rules and regulations <br> - Create AWS free tier account <br> - Get familiar with AWS Console interface <br> - Finished module 1                                                                                                                         | 09/09/2025 | 09/09/2025      | <https://policies.fcjuni.com/>            |
-| 2   | - Read guide and installed neccessary extensions to create a site for worklog and others in the future <br> - Started Module 2: <br>&emsp; + Learned about AWS Virtual Private Cloud <br>&emsp; + Understand the concept of VPC <br>&emsp; + Get to know about VPC Security and others VPC feature <br> | 09/10/2025 | 09/10/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 3   | - Watched Module 2 lab 3 to get an overview of the topic <br> - Practiced before implementation                                                                                                                                                                                                         | 09/11/2025 | 09/11/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Launched EC2 Instance <br> - Testing Amazon Bedrock Playground feature <br> - Created a web using Lambda service <br> - Created a database with RDS service for testing purpose                                                                                                                       | 09/12/2025 | 09/12/2025      | <https://cloudjourney.awsstudygroup.com/> |
+| Day | Task                                                                                                                                                                                                   | Start Date | Completion Date | Reference Material                        |
+| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------- | --------------- | ----------------------------------------- |
+| 1   | - Get acquainted with FCJ members <br> - Read and take note of internship unit rules and regulations                                                                                                   | 29/09/2025 | 29/09/2025      |
+| 2   | - Learn about AWS and its types of services <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                              | 30/09/2025 | 30/09/2025      | <https://cloudjourney.awsstudygroup.com/> |
+| 3   | - Create AWS Free Tier account <br> - Learn about AWS Console & AWS CLI <br> - **Practice:** <br>&emsp; + Create AWS account <br>&emsp; + Install & configure AWS CLI <br> &emsp; + How to use AWS CLI | 01/10/2025 | 01/10/2025      | <https://cloudjourney.awsstudygroup.com/> |
+| 4   | - Learn basic EC2: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - SSH connection methods to EC2 <br> - Learn about Elastic IP <br>                              | 02/10/2025 | 03/10/2025      | <https://aws.amazon.com/ec2/>             |
+| 5   | - **Practice:** <br>&emsp; + Launch an EC2 instance <br>&emsp; + Connect via SSH <br>&emsp; + Attach an EBS volume                                                                                     | 04/10/2025 | 05/10/2025      | <https://aws.amazon.com/ec2/>             |
 
 ### Week 1 Achievements:
 
@@ -28,9 +31,27 @@ pre: " <b> 1.1. </b> "
   - Storage
   - Networking
   - Database
+  - ...
 
-- Successfully created and configured an AWS account.
+- Successfully created and configured an AWS Free Tier account.
 
 - Became familiar with the AWS Management Console and learned how to find, access, and use services via the web interface.
 
-- Learned how to reduce costs by choosing AWS services that align with specific project requirements
+- Installed and configured AWS CLI on the computer, including:
+
+  - Access Key
+  - Secret Key
+  - Default Region
+  - ...
+
+- Used AWS CLI to perform basic operations such as:
+
+  - Check account & configuration information
+  - Retrieve the list of regions
+  - View EC2 service
+  - Create and manage key pairs
+  - Check information about running services
+  - ...
+
+- Acquired the ability to connect between the web interface and CLI to manage AWS resources in parallel.
+- ...

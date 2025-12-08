@@ -1,54 +1,66 @@
 ---
 title: "Week 4 Worklog"
-date: 2025-09-08
-weight: 1
+weight: 4
 chapter: false
 pre: " <b> 1.4. </b> "
 ---
 
+### Week 4 Goals
 
-### Week 4 Objectives:
+- Understand and optimize **data storage using Amazon S3**.
+- Advance skills in **S3 management, security, and performance optimization**.
+- Learn to use **CloudFront** and **Global Accelerator** for global content delivery and latency reduction.
+- Explore additional AWS storage solutions such as **FSx**, **Storage Gateway**, and service integration using **SQS**, **SNS**, and **Step Functions**.
 
-* Connect and get acquainted with members of First Cloud Journey.
-* Understand basic AWS services, how to use the console & CLI.
+**Time Period:** 20/10/2025 - 26/10/2025
 
-### Tasks to be carried out this week:
-| Day | Task                                                                                                                                                                                                   | Start Date | Completion Date | Reference Material                        |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------- | --------------- | ----------------------------------------- |
-| 2   | - Get acquainted with FCJ members <br> - Read and take note of internship unit rules and regulations                                                                                                   | 08/11/2025 | 08/11/2025      |
-| 3   | - Learn about AWS and its types of services <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                              | 08/12/2025 | 08/12/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Create AWS Free Tier account <br> - Learn about AWS Console & AWS CLI <br> - **Practice:** <br>&emsp; + Create AWS account <br>&emsp; + Install & configure AWS CLI <br> &emsp; + How to use AWS CLI | 08/13/2025 | 08/13/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Learn basic EC2: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - SSH connection methods to EC2 <br> - Learn about Elastic IP   <br>                            | 08/14/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Practice:** <br>&emsp; + Launch an EC2 instance <br>&emsp; + Connect via SSH <br>&emsp; + Attach an EBS volume                                                                                     | 08/15/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
+---
 
+### Weekly Tasks Overview
 
-### Week 4 Achievements:
+| Day | Activity                                                                                                                                                                                                                                                         | Start Date | End Date   | Reference                                  |
+| --- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------- | ---------- | ------------------------------------------ |
+| 1   | - Studied **Amazon S3 Basics** <br> + Created buckets and uploaded sample files <br> + Compared **storage tiers** (Standard, Infrequent Access, Glacier) <br> + Analyzed cost optimization for each tier                                                         | 20/10/2025 | 20/10/2025 | <https://aws.amazon.com/s3/>               |
+| 2   | - Practiced **Advanced S3 Management** <br> + Configured **Cross-Region Replication (CRR)** between two regions <br> + Set up **Lifecycle Policies** for automatic data transition to Glacier <br> + Enabled **Versioning** and tested object recovery           |21/10/2025 | 21/10/2025 | <https://docs.aws.amazon.com/AmazonS3/>    |
+| 3   | - Implemented **S3 Security Best Practices** <br> + Applied **IAM policies** and **Bucket Policies** for restricted access <br> + Configured **Server-Side Encryption (SSE)** and **AWS KMS** <br> + Verified **Block Public Access** settings to ensure privacy | 22/10/2025 | 22/10/2025 | <https://docs.aws.amazon.com/s3/security/> |
+| 4   | - Explored **CloudFront & Global Accelerator** <br> + Configured a **CloudFront Distribution** to serve content from S3 <br> + Integrated **Global Accelerator** for global low-latency access <br> + Evaluated performance improvements through testing tools   | 23/10/2025 | 23/10/2025 | <https://aws.amazon.com/cloudfront/>       |
+| 5   | - Studied **AWS Storage Extras** <br> + Learned about **AWS Storage Gateway** for hybrid storage <br> + Configured **FSx for Windows** and **FSx for Lustre** <br> + Compared performance between storage solutions                                              | 24/10/2025 | 24/10/2025 | <https://aws.amazon.com/storage/>          |
+| 6   | - Explored **AWS Integration & Messaging** <br> + Practiced using **SQS** for message queuing <br> + Implemented **SNS** for notifications <br> + Set up **Step Functions** for workflow orchestration                                                           | 25/10/2025 | 25/10/2025 | <https://aws.amazon.com/messaging/>        |
 
-* Understood what AWS is and mastered the basic service groups: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
+---
 
-* Successfully created and configured an AWS Free Tier account.
+### Week 4 Achievements
 
-* Became familiar with the AWS Management Console and learned how to find, access, and use services via the web interface.
+- Built a strong foundation in **Amazon S3 storage architecture**:
 
-* Installed and configured AWS CLI on the computer, including:
-  * Access Key
-  * Secret Key
-  * Default Region
-  * ...
+  - Understood key **storage classes** and their use cases.
+  - Analyzed cost-efficiency, durability, and retrieval time for each tier.
 
-* Used AWS CLI to perform basic operations such as:
+- Enhanced skills in **S3 advanced management**:
 
-  * Check account & configuration information
-  * Retrieve the list of regions
-  * View EC2 service
-  * Create and manage key pairs
-  * Check information about running services
-  * ...
+  - Successfully configured **Cross-Region Replication**.
+  - Applied **Lifecycle Policies** for automated cost optimization.
+  - Enabled **Versioning** for data recovery and version control.
 
-* Acquired the ability to connect between the web interface and CLI to manage AWS resources in parallel.
-* ...
+- Strengthened **S3 Security knowledge**:
+
+  - Implemented **IAM and Bucket Policies** for controlled access.
+  - Enabled encryption with **SSE** and **KMS**.
+  - Verified bucket security using **Block Public Access** settings.
+
+- Practiced global distribution with **CloudFront** and **Global Accelerator**:
+
+  - Deployed a global CDN to deliver content efficiently.
+  - Understood how latency-based routing enhances user experience.
+
+- Explored additional **AWS Storage Solutions**:
+
+  - Learned about **Storage Gateway** and hybrid storage concepts.
+  - Worked with **FSx for Windows File Server** and **FSx for Lustre** for high-performance workloads.
+
+- Studied **AWS Integration and Messaging services**:
+
+  - Utilized **SQS** for asynchronous message handling.
+  - Sent alerts using **SNS** and automated processes via **Step Functions**.
+
+- Gained comprehensive understanding across **Storage, Security, Networking, and Integration**, preparing for the upcoming **Serverless & Application Deployment** modules.

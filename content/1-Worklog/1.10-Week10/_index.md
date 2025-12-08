@@ -1,54 +1,54 @@
 ---
 title: "Week 10 Worklog"
-date: 2025-09-08
-weight: 2
+weight: 10
 chapter: false
 pre: " <b> 1.10. </b> "
 ---
 
+### Week 10 Goals
 
-### Week 10 Objectives:
+- Complete the full **Project Proposal** required for the program.
+- Study core AWS architectural concepts to accurately **design and draw an AWS Architecture Diagram**.
+- Prepare system flows, service selection, and architectural components for the final project.
 
-* Connect and get acquainted with members of First Cloud Journey.
-* Understand basic AWS services, how to use the console & CLI.
+---
 
-### Tasks to be carried out this week:
-| Day | Task                                                                                                                                                                                                   | Start Date | Completion Date | Reference Material                        |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------- | --------------- | ----------------------------------------- |
-| 2   | - Get acquainted with FCJ members <br> - Read and take note of internship unit rules and regulations                                                                                                   | 08/11/2025 | 08/11/2025      |
-| 3   | - Learn about AWS and its types of services <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                              | 08/12/2025 | 08/12/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Create AWS Free Tier account <br> - Learn about AWS Console & AWS CLI <br> - **Practice:** <br>&emsp; + Create AWS account <br>&emsp; + Install & configure AWS CLI <br> &emsp; + How to use AWS CLI | 08/13/2025 | 08/13/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Learn basic EC2: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - SSH connection methods to EC2 <br> - Learn about Elastic IP   <br>                            | 08/14/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Practice:** <br>&emsp; + Launch an EC2 instance <br>&emsp; + Connect via SSH <br>&emsp; + Attach an EBS volume                                                                                     | 08/15/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
+### Weekly Tasks Overview
 
+| Day | Activity                                                                                                                                                                                          | Start Date | End Date   | Reference                                    |
+| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------- | ---------- | -------------------------------------------- |
+| 1   | - Started writing the **Project Proposal** <br> + Drafted Executive Summary <br> + Defined the Problem Statement and project objectives                                                           | 11/10/2025 | 11/10/2025 | -                                            |
+| 2   | - Completed the Solution Overview section <br> + Listed required AWS services <br> + Defined the primary system data flow                                                                         | 11/11/2025 | 11/11/2025 | <https://aws.amazon.com/architecture/>       |
+| 3   | - Studied AWS architectural design principles <br> + Reviewed 3-tier, Serverless, and Event-driven architectures <br> + Learned AWS Architecture Icons                                            | 11/12/2025 | 11/12/2025 | <https://aws.amazon.com/architecture/icons/> |
+| 4   | - Practiced drawing the AWS Architecture Diagram <br> + Designed VPC and subnet layout <br> + Added ALB, EC2, RDS, S3, IAM, and routing components <br> + Mapped security layers and connectivity | 11/13/2025 | 11/13/2025 | -                                            |
+| 5   | - Updated the Proposal based on the drafted architecture <br> + Inserted the Architecture Diagram <br> + Wrote the Technical Implementation section                                               | 11/14/2025 | 11/14/2025 | -                                            |
+| 6   | - Final Week 10 review <br> + Fully reviewed the completed Proposal <br> + Performed final architecture validation                                                                                | 11/15/2025 | 11/15/2025 | -                                            |
 
-### Week 10 Achievements:
+---
 
-* Understood what AWS is and mastered the basic service groups: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
+### Week 10 Achievements
 
-* Successfully created and configured an AWS Free Tier account.
+- Completed the **full Project Proposal**, including:
 
-* Became familiar with the AWS Management Console and learned how to find, access, and use services via the web interface.
+  - Executive Summary
+  - Problem Statement
+  - Solution Architecture
+  - Expected Outcomes
+  - Technical Implementation
+  - Risk Assessment
 
-* Installed and configured AWS CLI on the computer, including:
-  * Access Key
-  * Secret Key
-  * Default Region
-  * ...
+- Gained strong understanding of **AWS Architecture Design**:
 
-* Used AWS CLI to perform basic operations such as:
+  - AWS Architecture Icons and diagram conventions
+  - VPC + Subnet design principles
+  - Compute, Database, Storage, and Networking placement in architecture diagrams
 
-  * Check account & configuration information
-  * Retrieve the list of regions
-  * View EC2 service
-  * Create and manage key pairs
-  * Check information about running services
-  * ...
+- Produced the **initial Architecture Diagram**, containing:
 
-* Acquired the ability to connect between the web interface and CLI to manage AWS resources in parallel.
-* ...
+  - VPC with public and private subnets
+  - ALB + EC2 Auto Scaling Group
+  - RDS Database
+  - S3 storage layer
+  - IAM roles, Security Groups, and network controls
+
+- Successfully prepared all foundational components needed for the upcoming final presentation and project submission.

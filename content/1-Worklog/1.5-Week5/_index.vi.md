@@ -1,57 +1,60 @@
 ---
-title: "Worklog Tuần 5"
-date: 2025-09-08
-weight: 1
+title: "Nhật ký Tuần 5"
+weight: 5
 chapter: false
 pre: " <b> 1.5. </b> "
 ---
 
+### Mục tiêu Tuần 5
 
+- Học cách triển khai và quản lý **container trên AWS** bằng **ECS**, **EKS**, và **Docker**.
+- Hiểu các khái niệm và lợi ích của **kiến trúc Serverless**.
+- Thiết kế và xây dựng **ứng dụng Serverless** tích hợp **Lambda**, **API Gateway**, **S3**, và **DynamoDB**.
+- Tìm hiểu các dịch vụ **cơ sở dữ liệu AWS** như **RDS**, **Aurora**, **DynamoDB**, **Redshift**, và **ElastiCache**.
 
-### Mục tiêu tuần 5:
+**Thời gian:** 27/10/2025 - 02/11/2025
 
-* Kết nối, làm quen với các thành viên trong First Cloud Journey.
-* Hiểu dịch vụ AWS cơ bản, cách dùng console & CLI.
+---
 
-### Các công việc cần triển khai trong tuần này:
-| Thứ | Công việc                                                                                                                                                                                   | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu                            |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ----------------------------------------- |
-| 2   | - Làm quen với các thành viên FCJ <br> - Đọc và lưu ý các nội quy, quy định tại đơn vị thực tập                                                                                             | 11/08/2025   | 11/08/2025      |
-| 3   | - Tìm hiểu AWS và các loại dịch vụ <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                            | 12/08/2025   | 12/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Tạo AWS Free Tier account <br> - Tìm hiểu AWS Console & AWS CLI <br> - **Thực hành:** <br>&emsp; + Tạo AWS account <br>&emsp; + Cài AWS CLI & cấu hình <br> &emsp; + Cách sử dụng AWS CLI | 13/08/2025   | 13/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Tìm hiểu EC2 cơ bản: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - Các cách remote SSH vào EC2 <br> - Tìm hiểu Elastic IP   <br>                  | 14/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Thực hành:** <br>&emsp; + Tạo EC2 instance <br>&emsp; + Kết nối SSH <br>&emsp; + Gắn EBS volume                                                                                         | 15/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
+### Tổng quan Nhiệm vụ Tuần
 
+| Ngày | Hoạt động                                                                                                                                                                                                                                               | Ngày bắt đầu | Ngày kết thúc | Tài liệu tham khảo                   |
+| ---- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | ------------- | ------------------------------------ |
+| 1    | - Tìm hiểu về **Containers on AWS** <br> + Phân biệt giữa **ECS** và **EKS** <br> + Triển khai container mẫu bằng **ECS (Fargate)** <br> + Làm quen với khái niệm **container orchestration**                                                           | 27/10/2025   | 27/10/2025    | <https://aws.amazon.com/containers/> |
+| 2    | - Thực hành với **EKS (Elastic Kubernetes Service)** <br> + Tạo cụm EKS và triển khai ứng dụng mẫu <br> + Kết nối **Docker image** từ local lên **ECR (Elastic Container Registry)** <br> + Theo dõi cụm EKS qua **AWS Console**                        | 28/10/2025   | 28/10/2025    | <https://aws.amazon.com/eks/>        |
+| 3    | - Khám phá **Serverless Overview** <br> + Hiểu khái niệm **event-driven computing** <br> + Tạo và kiểm thử **AWS Lambda** cơ bản <br> + Tích hợp **Lambda** với **API Gateway** để tạo endpoint                                                         | 29/10/2025   | 29/10/2025    | <https://aws.amazon.com/lambda/>     |
+| 4    | - Thiết kế **Serverless Architecture** <br> + Kết nối **Lambda** với **DynamoDB** và **S3** <br> + Xây dựng pipeline dữ liệu đơn giản bằng **Step Functions** <br> + Kiểm thử quy trình serverless end-to-end                                           | 30/10/2025   | 30/10/2025    | <https://000025.awsstudygroup.com/>  |
+| 5    | - Tìm hiểu về **Databases in AWS** <br> + So sánh giữa cơ sở dữ liệu quan hệ và NoSQL <br> + Tạo cơ sở dữ liệu thử nghiệm trong **RDS** và **DynamoDB** <br> + Làm quen với **Redshift** cho phân tích dữ liệu và **ElastiCache** để tăng tốc truy xuất | 31/10/2025   | 31/10/2025    | <https://000025.awsstudygroup.com/>  |
+| 6    | - Ôn tập toàn bộ kiến thức trong tuần <br> + Triển khai dự án nhỏ kết hợp **Lambda**, **API Gateway**, **DynamoDB**, và **S3** <br> + Ghi chú lại bài học và các kinh nghiệm tối ưu                                                                     | 1/11/2025    | 1/11/2025     | -                                    |
 
-### Kết quả đạt được tuần 5:
+---
 
-* Hiểu AWS là gì và nắm được các nhóm dịch vụ cơ bản: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
+### Thành tựu Tuần 5
 
-* Đã tạo và cấu hình AWS Free Tier account thành công.
+- Hiểu rõ và thực hành với **Containers trên AWS**:
 
-* Làm quen với AWS Management Console và biết cách tìm, truy cập, sử dụng dịch vụ từ giao diện web.
+  - Triển khai container bằng **ECS (Fargate)** và **EKS**.
+  - Nắm vững cách quản lý image với **ECR** và nguyên tắc **container orchestration**.
 
-* Cài đặt và cấu hình AWS CLI trên máy tính bao gồm:
-  * Access Key
-  * Secret Key
-  * Region mặc định
-  * ...
+- Nắm bắt kiến thức nền tảng về **kiến trúc Serverless**:
 
-* Sử dụng AWS CLI để thực hiện các thao tác cơ bản như:
+  - Xây dựng và chạy các hàm **AWS Lambda** theo hướng sự kiện (event-driven).
+  - Tích hợp **Lambda** với **API Gateway** để tạo các endpoint RESTful.
 
-  * Kiểm tra thông tin tài khoản & cấu hình
-  * Lấy danh sách region
-  * Xem dịch vụ EC2
-  * Tạo và quản lý key pair
-  * Kiểm tra thông tin dịch vụ đang chạy
-  * ...
+- Thiết kế và triển khai thành công **ứng dụng Serverless hoàn chỉnh**:
 
-* Có khả năng kết nối giữa giao diện web và CLI để quản lý tài nguyên AWS song song.
-* ...
+  - Kết nối **Lambda** với **DynamoDB** và **S3** để xử lý dữ liệu tự động.
+  - Sử dụng **Step Functions** để điều phối quy trình làm việc.
 
+- Củng cố kiến thức về **các dịch vụ cơ sở dữ liệu của AWS**:
 
+  - Làm việc với **RDS** cho hệ quản trị quan hệ và **DynamoDB** cho NoSQL.
+  - Tìm hiểu **Aurora** về khả năng mở rộng và **Redshift** cho phân tích dữ liệu.
+  - Sử dụng **ElastiCache** để tăng hiệu năng truy xuất dữ liệu.
+
+- Áp dụng tư duy **DevOps** trong quá trình triển khai:
+
+  - Kết hợp giữa **Containers**, **Serverless**, và **Databases** trong cùng môi trường triển khai.
+  - Hiểu được quy trình phát triển liền mạch giữa các dịch vụ AWS.
+
+- Hoàn thiện kiến thức về **Compute, Database, và Serverless**, sẵn sàng cho **Tuần 6** với chủ đề **Monitoring, CI/CD và Infrastructure as Code (IaC)**.

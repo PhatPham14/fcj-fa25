@@ -1,54 +1,55 @@
 ---
 title: "Week 9 Worklog"
-date: 2025-09-08
-weight: 1
+weight: 9
 chapter: false
 pre: " <b> 1.9. </b> "
 ---
 
+### Week 9 Goals
 
-### Week 9 Objectives:
+- Complete the **final AWS Cloud Journey summary report**.
+- Build and present a **full AWS system architecture** based on all services learned.
+- Review and consolidate knowledge from Week 1 to Week 8.
+- Prepare materials for the final presentation.
 
-* Connect and get acquainted with members of First Cloud Journey.
-* Understand basic AWS services, how to use the console & CLI.
+---
 
-### Tasks to be carried out this week:
-| Day | Task                                                                                                                                                                                                   | Start Date | Completion Date | Reference Material                        |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------- | --------------- | ----------------------------------------- |
-| 2   | - Get acquainted with FCJ members <br> - Read and take note of internship unit rules and regulations                                                                                                   | 08/11/2025 | 08/11/2025      |
-| 3   | - Learn about AWS and its types of services <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                              | 08/12/2025 | 08/12/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Create AWS Free Tier account <br> - Learn about AWS Console & AWS CLI <br> - **Practice:** <br>&emsp; + Create AWS account <br>&emsp; + Install & configure AWS CLI <br> &emsp; + How to use AWS CLI | 08/13/2025 | 08/13/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Learn basic EC2: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - SSH connection methods to EC2 <br> - Learn about Elastic IP   <br>                            | 08/14/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Practice:** <br>&emsp; + Launch an EC2 instance <br>&emsp; + Connect via SSH <br>&emsp; + Attach an EBS volume                                                                                     | 08/15/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
+### Weekly Tasks Overview
 
+| Day | Activity                                                                                                                                                                            | Start Date | End Date   | Reference                                               |
+| --- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------- | ---------- | ------------------------------------------------------- |
+| 1   | - Consolidated learning from Week 1–8 <br> + Reviewed all major AWS services <br> + Assessed understanding of Compute, Storage, Networking, and Security                            | 11/03/2025 | 11/03/2025 | -                                                       |
+| 2   | - Built the **final architecture diagram** <br> + Designed full VPC layout <br> + Included Compute, RDS, S3, Load Balancer, IAM, and Monitoring                                     | 11/04/2025 | 11/04/2025 | <https://aws.amazon.com/architecture/icons/>            |
+| 3   | - Wrote the **final Well-Architected report** <br> + Security pillar <br> + Reliability pillar <br> + Performance efficiency <br> + Cost optimization <br> + Operational excellence | 11/05/2025 | 11/05/2025 | <https://aws.amazon.com/architecture/well-architected/> |
+| 4   | - Reviewed key advanced topics <br> + Advanced VPC networking, VPN, Direct Connect <br> + Auto Scaling + Load Balancing <br> + S3 security & CloudFront                             | 11/06/2025 | 11/06/2025 | -                                                       |
+| 5   | - Prepared **Final Presentation** materials <br> + Architecture slides <br> + Demo outline (if applicable)                                                                          | 11/07/2025 | 11/07/2025 | -                                                       |
+| 6   | - Final weekly summary <br> + Updated worklog and Hugo site <br> + Performed final content review before submission                                                                 | 11/08/2025 | 11/08/2025 | -                                                       |
 
-### Week 9 Achievements:
+---
 
-* Understood what AWS is and mastered the basic service groups: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
+### Week 9 Achievements
 
-* Successfully created and configured an AWS Free Tier account.
+- Completed the **full AWS system architecture design**, including:
 
-* Became familiar with the AWS Management Console and learned how to find, access, and use services via the web interface.
+  - VPC with public/private subnets
+  - EC2 + ALB + Auto Scaling
+  - RDS + S3 + CloudFront
+  - IAM roles and policies
+  - Security Groups, NACLs
+  - CloudWatch & CloudTrail monitoring
 
-* Installed and configured AWS CLI on the computer, including:
-  * Access Key
-  * Secret Key
-  * Default Region
-  * ...
+- Delivered a complete **AWS Cloud Journey Final Report**, summarizing:
 
-* Used AWS CLI to perform basic operations such as:
+  - All concepts learned
+  - Hands-on labs completed
+  - Final architecture and design rationale
 
-  * Check account & configuration information
-  * Retrieve the list of regions
-  * View EC2 service
-  * Create and manage key pairs
-  * Check information about running services
-  * ...
+- Strengthened core AWS knowledge:
 
-* Acquired the ability to connect between the web interface and CLI to manage AWS resources in parallel.
-* ...
+  - Compute, Storage, Networking, Security
+  - Serverless technologies
+  - Monitoring and cost optimization
+
+- Prepared full **presentation materials**, diagrams, and summary slides.
+
+- Fully ready for the program’s **Final Presentation Session**.

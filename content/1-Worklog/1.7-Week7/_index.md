@@ -1,54 +1,51 @@
 ---
 title: "Week 7 Worklog"
-date: 2025-09-08
-weight: 1
+weight: 7
 chapter: false
 pre: " <b> 1.7. </b> "
 ---
 
+### Week 7 Objectives
 
-### Week 7 Objectives:
+- Understand and apply **data and system security practices** in AWS.  
+- Configure, manage, and optimize **Amazon VPC (Virtual Private Cloud)** for secure private networking.  
+- Learn how to **back up, restore, and implement Disaster Recovery (DR)** using AWS services.  
 
-* Connect and get acquainted with members of First Cloud Journey.
-* Understand basic AWS services, how to use the console & CLI.
+**Time Period:** 10/11/2025 - 16/11/2025
 
-### Tasks to be carried out this week:
-| Day | Task                                                                                                                                                                                                   | Start Date | Completion Date | Reference Material                        |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------- | --------------- | ----------------------------------------- |
-| 2   | - Get acquainted with FCJ members <br> - Read and take note of internship unit rules and regulations                                                                                                   | 08/11/2025 | 08/11/2025      |
-| 3   | - Learn about AWS and its types of services <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                              | 08/12/2025 | 08/12/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Create AWS Free Tier account <br> - Learn about AWS Console & AWS CLI <br> - **Practice:** <br>&emsp; + Create AWS account <br>&emsp; + Install & configure AWS CLI <br> &emsp; + How to use AWS CLI | 08/13/2025 | 08/13/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Learn basic EC2: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - SSH connection methods to EC2 <br> - Learn about Elastic IP   <br>                            | 08/14/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Practice:** <br>&emsp; + Launch an EC2 instance <br>&emsp; + Connect via SSH <br>&emsp; + Attach an EBS volume                                                                                     | 08/15/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
+---
 
+### Weekly Task Overview
 
-### Week 7 Achievements:
+| Day | Activity                                                                                                                                                                                                                                                           | Start Date   | End Date     | Reference                               |
+| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------- | ------------ | ---------------------------------------- |
+| 1   | - Begin writing the project **Proposal** <br> + Complete the **Executive Summary**, **Problem Statement**, and **Overall System Architecture** <br> + Research AWS services to be integrated in later deployment phases                                            | 2025-11-10    | 2025-11-10   | -                                        |
+| 2   | - Build **Domain → Persistence → Application Layer** for the Mini-Market system <br> + Create entities <br> + Implement **Repository & Unit of Work Pattern** <br> + Run migrations & seed data <br> + Develop core business logic services                         | 2025-11-11    | 2025-11-11   | -                                        |
+| 3   | - Initialize the **WebShop MVC** project <br> + Create base layout (Header, Footer, Navigation) <br> + Build **Product List – Shopping Cart** pages <br> + Write the **Architecture & Technical Implementation** section of the Proposal                             | 2025-11-12    | 2025-11-12   | -                                        |
+| 4   | - Draw the **AWS Architecture Diagram** for the system <br> + Collect information for each service used: <br> &emsp; · Elastic Beanstalk <br> &emsp; · RDS SQL Server <br> &emsp; · Amazon S3 <br> &emsp; · CloudFront <br> &emsp; · WAF & Route 53 <br> &emsp; · ElastiCache Redis <br> &emsp; · NAT Gateway <br> &emsp; · CodePipeline/CodeBuild | 2025-11-13    | 2025-11-13   | -                                        |
+| 5   | - Study **Disaster Recovery & Backup** <br> + Use **AWS Backup** for automated resource backup <br> + Configure **RDS Read Replicas** for improved fault tolerance <br> + Practice **Cross-Region Failover** for DR planning                                         | 2025-11-14    | 2025-11-14   | <https://aws.amazon.com/backup/>         |
+| 6   | - Summarize project progress and update the Proposal <br> + Review architecture, IAM roles, and selected AWS services <br> + Prepare content for Week 8: S3 upload integration, Redis caching, and architecture optimization                                      | 2025-11-15    | 2025-11-15   | -                                        |
 
-* Understood what AWS is and mastered the basic service groups: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
+---
 
-* Successfully created and configured an AWS Free Tier account.
+### Week 7 Achievements
 
-* Became familiar with the AWS Management Console and learned how to find, access, and use services via the web interface.
+- Strengthened knowledge of **AWS security and data encryption**:
+  - Practiced creating and managing **KMS keys** for data protection.  
+  - Understood how **CloudHSM** enhances hardware-level key security.  
+  - Configured **AWS Shield** and **WAF** to safeguard applications from DDoS attacks and malicious traffic.  
 
-* Installed and configured AWS CLI on the computer, including:
-  * Access Key
-  * Secret Key
-  * Default Region
-  * ...
+- Gained solid understanding of **Amazon VPC networking**:
+  - Created and configured **VPC**, **subnets**, **route tables**, **Internet Gateway**, and **NAT Gateway**.  
+  - Applied **Security Groups** and **Network ACLs** for effective access control.  
+  - Set up **VPN Connection** and studied **Direct Connect** for secure, high-throughput connectivity.  
 
-* Used AWS CLI to perform basic operations such as:
+- Mastered core concepts of **Disaster Recovery (DR)** and data backup:
+  - Used **AWS Backup** for automated scheduled backups.  
+  - Configured **RDS Read Replicas** to ensure data availability.  
+  - Practiced **Cross-Region Failover** to maintain system continuity during outages.  
 
-  * Check account & configuration information
-  * Retrieve the list of regions
-  * View EC2 service
-  * Create and manage key pairs
-  * Check information about running services
-  * ...
+- Improved ability to design **secure, reliable, and highly resilient** AWS architectures:
+  - Learned to integrate **Security**, **Networking**, and **Resilience** best practices.  
+  - Prepared foundational knowledge for next week’s topics: **Automation, Infrastructure as Code (IaC), and DevOps Practices**.
 
-* Acquired the ability to connect between the web interface and CLI to manage AWS resources in parallel.
-* ...

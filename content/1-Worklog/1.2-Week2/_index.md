@@ -1,55 +1,62 @@
 ---
 title: "Week 2 Worklog"
-date: 2025-09-08
-weight: 1
+weight: 2
 chapter: false
 pre: " <b> 1.2. </b> "
 ---
 
+### Week 2 Goals
 
+- Learn and apply **AWS IAM** for identity and access control.
+- Deploy and manage **EC2 instances**.
+- Explore **Amazon VPC** and **AWS Site-to-Site VPN** networking fundamentals.
+- Reinforce **C# programming** basics.
 
-### Week 2 Objectives:
+**Time Period:** 06/10/2025 - 12/10/2025
 
-* Connect and get acquainted with members of First Cloud Journey.
-* Understand basic AWS services, how to use the console & CLI.
+---
 
-### Tasks to be carried out this week:
-| Day | Task                                                                                                                                                                                                   | Start Date | Completion Date | Reference Material                        |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------- | --------------- | ----------------------------------------- |
-| 2   | - Get acquainted with FCJ members <br> - Read and take note of internship unit rules and regulations                                                                                                   | 08/11/2025 | 08/11/2025      |
-| 3   | - Learn about AWS and its types of services <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                              | 08/12/2025 | 08/12/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Create AWS Free Tier account <br> - Learn about AWS Console & AWS CLI <br> - **Practice:** <br>&emsp; + Create AWS account <br>&emsp; + Install & configure AWS CLI <br> &emsp; + How to use AWS CLI | 08/13/2025 | 08/13/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Learn basic EC2: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - SSH connection methods to EC2 <br> - Learn about Elastic IP   <br>                            | 08/14/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Practice:** <br>&emsp; + Launch an EC2 instance <br>&emsp; + Connect via SSH <br>&emsp; + Attach an EBS volume                                                                                     | 08/15/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
+### Weekly Tasks Overview
 
+| Day | Activity                                                                                                                                                                                                                                                                                       | Start Date | End Date   | Reference                                 |
+| --- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------- | ---------- | ----------------------------------------- |
+| 1   | - Studied **IAM** fundamentals <br> + Created and assigned **users, groups, roles** <br> + Attached **permission policies** for least-privilege access <br> + Verified access through IAM Console                                                                                              | 06/10/2025 | 06/10/2025 | <https://000002.awsstudygroup.com/>       |
+| 2   | - Deployed and configured an **EC2 instance** <br> + Selected **Amazon Linux 2023 (Free Tier)** <br> + Configured **key pair** and **security group** (SSH) <br> + Connected via SSH and validated status <br> + Practiced **VPC networking** basics (subnets, route tables, Internet Gateway) | 07/10/2025 | 07/10/2025 | <https://000003.awsstudygroup.com/>       |
+| 3   | - Explored **Amazon Bedrock Playground** <br> + Tested models like _Claude 3 Haiku_ and _Titan Text_ <br> + Wrote sample prompts and evaluated responses <br> + Tried varied scenarios to observe model behavior                                                                               | 08/10/2025 | 08/10/2025 | <https://cloudjourney.awsstudygroup.com/> |
+| 4   | - Reviewed **C# fundamentals** <br> + Revisited control flow, loops, classes, and objects <br> + Wrote small sample programs to validate logic <br> + Summarized key AWS services with ChatGPT for quick recall                                                                                | 09/10/2025 | 10/10/2025 | -                                         |
 
-### Week 2 Achievements:
+---
 
-* Understood what AWS is and mastered the basic service groups: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
+### Week 2 Achievements
 
-* Successfully created and configured an AWS Free Tier account.
+- Applied **IAM** principles in practice (users, roles, and access policies).
 
-* Became familiar with the AWS Management Console and learned how to find, access, and use services via the web interface.
+  - Implemented least-privilege permissions and appropriate group policies.
+  - Understood relationships between **users, groups, roles**, and **policies**.
 
-* Installed and configured AWS CLI on the computer, including:
-  * Access Key
-  * Secret Key
-  * Default Region
-  * ...
+- Successfully launched, connected to, and terminated **EC2 instances** within the Free Tier.
 
-* Used AWS CLI to perform basic operations such as:
+  - Managed instance lifecycle from the **EC2 Console**.
+  - Verified SSH connectivity and basic instance health.
 
-  * Check account & configuration information
-  * Retrieve the list of regions
-  * View EC2 service
-  * Create and manage key pairs
-  * Check information about running services
-  * ...
+- Built foundational knowledge of **Amazon VPC**:
 
-* Acquired the ability to connect between the web interface and CLI to manage AWS resources in parallel.
-* ...
+  - **Subnets**, **Route Tables**, **Internet Gateway**, **NAT Gateway**, and logical network design.
+  - Understood routing mechanics and secure network isolation.
+
+- Learned **AWS Site-to-Site VPN** concepts for secure connectivity between on-premises networks and VPCs.
+
+  - Grasped VPN tunnel behavior and high-level setup steps.
+
+- Gained hands-on exposure to **Amazon Bedrock Playground** (Claude/Titan).
+
+  - Practiced prompt writing to obtain accurate, useful responses.
+  - Explored generative AI use cases and response patterns.
+
+- Reinforced **C# programming** alongside AWS exercises.
+
+  - Authored small snippets to validate syntax and core logic.
+
+- Formed a broader view of primary AWS domains:
+  - **Compute** (EC2, Lambda), **Networking** (VPC, VPN), **AI/ML** (Bedrock).
+  - Understood how these services combine to build end-to-end cloud solutions.

@@ -1,57 +1,53 @@
 ---
-title: "Worklog Tuần 7"
-date: 2025-09-08
-weight: 1
+title: "Nhật ký Tuần 7"
+weight: 7
 chapter: false
 pre: " <b> 1.7. </b> "
 ---
 
+### Mục tiêu Tuần 7
 
+- Hiểu và áp dụng các phương pháp **bảo mật dữ liệu và hệ thống** trong AWS.
+- Quản lý, cấu hình và tối ưu **Amazon VPC (Virtual Private Cloud)** cho hệ thống mạng riêng.
+- Học cách **sao lưu, phục hồi và triển khai kế hoạch khôi phục thảm họa (Disaster Recovery)** với các công cụ AWS.
 
-### Mục tiêu tuần 7:
+**Thời gian:** 10/11/2025 - 16/11/2025
 
-* Kết nối, làm quen với các thành viên trong First Cloud Journey.
-* Hiểu dịch vụ AWS cơ bản, cách dùng console & CLI.
+---
 
-### Các công việc cần triển khai trong tuần này:
-| Thứ | Công việc                                                                                                                                                                                   | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu                            |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ----------------------------------------- |
-| 2   | - Làm quen với các thành viên FCJ <br> - Đọc và lưu ý các nội quy, quy định tại đơn vị thực tập                                                                                             | 11/08/2025   | 11/08/2025      |
-| 3   | - Tìm hiểu AWS và các loại dịch vụ <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                            | 12/08/2025   | 12/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Tạo AWS Free Tier account <br> - Tìm hiểu AWS Console & AWS CLI <br> - **Thực hành:** <br>&emsp; + Tạo AWS account <br>&emsp; + Cài AWS CLI & cấu hình <br> &emsp; + Cách sử dụng AWS CLI | 13/08/2025   | 13/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Tìm hiểu EC2 cơ bản: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - Các cách remote SSH vào EC2 <br> - Tìm hiểu Elastic IP   <br>                  | 14/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Thực hành:** <br>&emsp; + Tạo EC2 instance <br>&emsp; + Kết nối SSH <br>&emsp; + Gắn EBS volume                                                                                         | 15/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
+### Tổng quan Nhiệm vụ Tuần
 
+| Ngày | Hoạt động                                                                                                                                                                                                                                                                                     | Ngày bắt đầu | Ngày kết thúc | Tài liệu tham khảo                 |
+| ---- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | ------------- | ---------------------------------- |
+| 1    | - Bắt đầu viết **Proposal** của đồ án <br> + Hoàn thiện **Executive Summary**, **Problem Statement**, **Kiến trúc tổng quan hệ thống** <br> + Nghiên cứu các dịch vụ AWS sẽ tích hợp trong giai đoạn triển khai sau                                                            | 10/11/2025   | 10/11/2025    | -                   |
+| 2    | - Xây dựng **Domain → Persistence → Application Layer** cho Mini-Market <br> + Tạo entity <br> + Thiết lập **Repository & Unit of Work Pattern** <br> + Chạy migration & seed dữ liệu <br> + Triển khai các service xử lý nghiệp vụ chính                                    | 11/11/2025   | 11/11/2025    | -                   |
+| 3    | - Khởi tạo **WebShop MVC** <br> + Tạo layout cơ bản (Header, Footer, Navigation) <br> + Xây dựng trang **Danh sách sản phẩm – Giỏ hàng** <br> + Viết phần **Architecture & Technical Implementation** cho Proposal                                                              | 12/11/2025   | 12/11/2025    | -                   |
+| 4    | - Vẽ sơ đồ **AWS Architecture Diagram** cho hệ thống <br> + Thu thập thông tin từng dịch vụ sử dụng: <br> &emsp; · Elastic Beanstalk <br> &emsp; · RDS SQL Server <br> &emsp; · Amazon S3 <br> &emsp; · CloudFront <br> &emsp; · WAF & Route 53 <br> &emsp; · ElastiCache Redis <br> &emsp; · NAT Gateway <br> &emsp; · CodePipeline/CodeBuild | 13/11/2025   | 13/11/2025    | -                   |
+| 5    | - Tìm hiểu về **Disaster Recovery & Backup** <br> + Sử dụng **AWS Backup** để sao lưu tài nguyên tự động <br> + Cấu hình **RDS Read Replicas** để tăng khả năng chịu lỗi <br> + Thực hành **Cross-Region Failover** cho kế hoạch DR                                                           | 14/11/2025   | 14/11/2025    | <https://aws.amazon.com/backup/>   |
+| 6    | - Tổng hợp tiến độ đồ án và cập nhật Proposal <br> + Rà soát kiến trúc, phân quyền, các dịch vụ AWS đã chọn <br> + Chuẩn bị nội dung cho tuần 8: Triển khai S3 upload, cache Redis và tối ưu kiến trúc                                                                    | 15/11/2025   | 15/11/2025    | -                                  |
 
-### Kết quả đạt được tuần 7:
+---
 
-* Hiểu AWS là gì và nắm được các nhóm dịch vụ cơ bản: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
+### Thành tựu Tuần 7
 
-* Đã tạo và cấu hình AWS Free Tier account thành công.
+- Nắm vững **bảo mật dữ liệu và mã hóa trong AWS**:
 
-* Làm quen với AWS Management Console và biết cách tìm, truy cập, sử dụng dịch vụ từ giao diện web.
+  - Thực hành tạo và quản lý **KMS keys** để bảo vệ dữ liệu.
+  - Hiểu cơ chế hoạt động của **CloudHSM** trong quản lý khóa phần cứng.
+  - Cấu hình **AWS Shield** và **WAF** để bảo vệ ứng dụng khỏi tấn công DDoS và truy cập độc hại.
 
-* Cài đặt và cấu hình AWS CLI trên máy tính bao gồm:
-  * Access Key
-  * Secret Key
-  * Region mặc định
-  * ...
+- Làm chủ **mạng riêng ảo Amazon VPC**:
 
-* Sử dụng AWS CLI để thực hiện các thao tác cơ bản như:
+  - Tạo và cấu hình **VPC**, **subnets**, **route tables**, **Internet Gateway**, và **NAT Gateway**.
+  - Áp dụng **Security Groups** và **Network ACLs** để kiểm soát truy cập hiệu quả.
+  - Thiết lập **VPN Connection** và hiểu khái niệm **Direct Connect** cho kết nối bảo mật cao.
 
-  * Kiểm tra thông tin tài khoản & cấu hình
-  * Lấy danh sách region
-  * Xem dịch vụ EC2
-  * Tạo và quản lý key pair
-  * Kiểm tra thông tin dịch vụ đang chạy
-  * ...
+- Hiểu rõ quy trình **Disaster Recovery (DR)** và sao lưu dữ liệu:
 
-* Có khả năng kết nối giữa giao diện web và CLI để quản lý tài nguyên AWS song song.
-* ...
+  - Sử dụng **AWS Backup** để quản lý sao lưu định kỳ.
+  - Cấu hình **RDS Read Replicas** để đảm bảo tính sẵn sàng dữ liệu.
+  - Thực hiện **Cross-Region Failover** để đảm bảo khôi phục nhanh sau thảm họa.
 
-
+- Tăng cường khả năng thiết kế hệ thống an toàn, đáng tin cậy và có khả năng phục hồi cao.
+  - Biết cách kết hợp giữa **Security**, **Networking**, và **Resilience** trong kiến trúc AWS.
+  - Chuẩn bị kiến thức cho tuần tiếp theo về **Automation, Infrastructure as Code (IaC), và DevOps Practices**.
