@@ -25,9 +25,6 @@ pre: " <b> 1.12. </b> "
 
 
 
-[Image of project presentation slide deck]
-
-
 * **Sản phẩm:** Hệ thống dự án đã hoạt động ổn định, kịch bản Demo đã chạy mượt mà (Happy path).
 * **Tài liệu:** Đã hoàn thiện Slide thuyết trình và bộ tài liệu kỹ thuật cuối cùng.
 * **Tâm thế:** Đã nắm vững luồng bài thuyết trình, sẵn sàng trả lời các câu hỏi phản biện (Q&A) từ Mentor/Ban giám khảo.

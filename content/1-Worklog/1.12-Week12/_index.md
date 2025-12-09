@@ -24,10 +24,6 @@ pre: " <b> 1.12. </b> "
 ### Week 12 Achievements:
 
 
-
-[Image of project presentation slide deck]
-
-
 * **Product:** Project system is stable, Demo script runs smoothly (Happy path).
 * **Documentation:** Finalized Presentation Slides and technical documentation.
 * **Readiness:** Mastered the presentation flow, prepared for Q&A from Mentors/Judges.
