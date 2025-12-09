@@ -68,4 +68,4 @@ Even though it took place on a Saturday morning after completing the Final Showc
 
 Security knowledge is often dry, but the approach through practical Playbooks (such as handling S3 bucket exposure) made the lessons very accessible. This provides a solid foundation for me to be more confident when joining real-world enterprise projects after the internship, where security is always a top priority.
 
-> **Conclusion:** A perfect ending to the technical training series, completing the final piece of a Cloud Engineer: **Security**. 🛡️🔐
+> **Conclusion:** A perfect ending to the technical training series, completing the final piece of a Cloud Engineer: **Security**.
