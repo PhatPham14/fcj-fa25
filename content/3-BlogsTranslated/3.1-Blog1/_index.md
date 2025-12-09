@@ -52,7 +52,7 @@ HPC workloads in FSI have diverse requirements, but some key common characterist
 
 We will use the decision tree in Figure 1 to guide the selection of the appropriate platform.
 
-[Image placeholder: Decision tree for selecting an HPC solution on the cloud based on workload characteristics]
+![pic 1](/images/3-Blog/B1-1.png)
 > *Figure 1. Decision tree for selecting an HPC solution on the cloud based on workload characteristics.*
 
 Navigation begins with a critical decision: **Keep the existing on-premises scheduler** or **Build a new cloud-native solution**.
