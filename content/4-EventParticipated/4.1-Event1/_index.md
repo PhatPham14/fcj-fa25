@@ -54,14 +54,12 @@ Sự kiện tại TP.HCM tập trung vào 2 track kỹ thuật chính mà em r�
 
 ### Hình ảnh sự kiện
 
-![Không gian sự kiện tại AWS Office](/images/4-Events/cloudday-hcm-1.jpg)
-*(Không gian check-in tại văn phòng AWS Vietnam - Bitexco)*
-
-![Tham gia Workshop](/images/4-Events/cloudday-hcm-2.jpg)
-*(Tập trung thực hành tại phiên Hands-on Workshop)*
-
-![Networking](/images/4-Events/cloudday-hcm-3.jpg)
-*(Giao lưu cùng các anh chị Builders và Mentor)*
+![Tham gia Event](/images/4-Events/E1-1.jpeg)
+![Tham gia Event](/images/4-Events/E1-2.jpeg)
+![Tham gia Event](/images/4-Events/E1-3.jpeg)
+![Tham gia Event](/images/4-Events/E1-4.jpeg)
+![Tham gia Event](/images/4-Events/E1-5.jpeg)
+![Tham gia Event](/images/4-Events/E1-6.jpeg)
 
 ### Cảm nhận cá nhân
 

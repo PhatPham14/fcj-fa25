@@ -54,14 +54,12 @@ The event in HCMC focused on 2 technical tracks that I was very interested in:
 
 ### Event Photos
 
-![Event space at AWS Office](/images/4-Events/cloudday-hcm-1.jpg)
-*(Check-in space at AWS Vietnam Office - Bitexco)*
-
-![Participating in Workshop](/images/4-Events/cloudday-hcm-2.jpg)
-*(Focusing on practice at the Hands-on Workshop session)*
-
-![Networking](/images/4-Events/cloudday-hcm-3.jpg)
-*(Networking with fellow Builders and Mentors)*
+![Participating in Event](/images/4-Events/E1-1.jpeg)
+![Participating in Event](/images/4-Events/E1-2.jpeg)
+![Participating in Event](/images/4-Events/E1-3.jpeg)
+![Participating in Event](/images/4-Events/E1-4.jpeg)
+![Participating in Event](/images/4-Events/E1-5.jpeg)
+![Participating in Event](/images/4-Events/E1-6.jpeg)
 
 ### Personal Reflection
 
