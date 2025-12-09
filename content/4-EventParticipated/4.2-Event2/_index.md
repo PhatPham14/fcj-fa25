@@ -54,14 +54,10 @@ The workshop was divided into two in-depth technical sessions with practical Dem
 
 ### Event Photos
 
-![Workshop Space at AWS](/images/4-Events/aiml-workshop-1.jpg)
-*(Professional learning space at AWS office)*
-
-![SageMaker Studio Demo](/images/4-Events/aiml-workshop-2.jpg)
-*(Watching the Live Demo on SageMaker Studio)*
-
-![Building GenAI Chatbot](/images/4-Events/aiml-workshop-3.jpg)
-*(Result of the Chatbot demo with Amazon Bedrock)*
+![Participating in Event](/images/4-Events/E2-1.jpeg)
+![Participating in Event](/images/4-Events/E2-2.jpeg)
+![Participating in Event](/images/4-Events/E2-3.jpeg)
+![Participating in Event](/images/4-Events/E2-4.jpeg)
 
 ### Personal Reflection
 

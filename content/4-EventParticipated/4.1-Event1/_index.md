@@ -54,12 +54,12 @@ Sự kiện tại TP.HCM tập trung vào 2 track kỹ thuật chính mà em r�
 
 ### Hình ảnh sự kiện
 
-![Tham gia Event](/images/4-Events/E1-1.jpeg)
-![Tham gia Event](/images/4-Events/E1-2.jpeg)
-![Tham gia Event](/images/4-Events/E1-3.jpeg)
-![Tham gia Event](/images/4-Events/E1-4.jpeg)
-![Tham gia Event](/images/4-Events/E1-5.jpeg)
-![Tham gia Event](/images/4-Events/E1-6.jpeg)
+![Participating in Event](/images/4-Events/E1-1.jpeg)
+![Participating in Event](/images/4-Events/E1-2.jpeg)
+![Participating in Event](/images/4-Events/E1-3.jpeg)
+![Participating in Event](/images/4-Events/E1-4.jpeg)
+![Participating in Event](/images/4-Events/E1-5.jpeg)
+![Participating in Event](/images/4-Events/E1-6.jpeg)
 
 ### Cảm nhận cá nhân
 

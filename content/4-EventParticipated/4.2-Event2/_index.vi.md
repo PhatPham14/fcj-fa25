@@ -54,14 +54,10 @@ Buổi workshop được chia làm hai phiên kỹ thuật chuyên sâu với c�
 
 ### Hình ảnh sự kiện
 
-![Không gian Workshop tại AWS](/images/4-Events/aiml-workshop-1.jpg)
-*(Không gian học tập chuyên nghiệp tại văn phòng AWS)*
-
-![Demo SageMaker Studio](/images/4-Events/aiml-workshop-2.jpg)
-*(Theo dõi Demo trực tiếp trên SageMaker Studio)*
-
-![Xây dựng GenAI Chatbot](/images/4-Events/aiml-workshop-3.jpg)
-*(Thành quả demo Chatbot với Amazon Bedrock)*
+![Tham gia Event](/images/4-Events/E2-1.jpeg)
+![Tham gia Event](/images/4-Events/E2-2.jpeg)
+![Tham gia Event](/images/4-Events/E2-3.jpeg)
+![Tham gia Event](/images/4-Events/E2-4.jpeg)
 
 ### Cảm nhận cá nhân
 

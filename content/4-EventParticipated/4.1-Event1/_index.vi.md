@@ -54,12 +54,12 @@ The event in HCMC focused on 2 technical tracks that I was very interested in:
 
 ### Event Photos
 
-![Participating in Event](/images/4-Events/E1-1.jpeg)
-![Participating in Event](/images/4-Events/E1-2.jpeg)
-![Participating in Event](/images/4-Events/E1-3.jpeg)
-![Participating in Event](/images/4-Events/E1-4.jpeg)
-![Participating in Event](/images/4-Events/E1-5.jpeg)
-![Participating in Event](/images/4-Events/E1-6.jpeg)
+![Tham gia Event](/images/4-Events/E1-1.jpeg)
+![Tham gia Event](/images/4-Events/E1-2.jpeg)
+![Tham gia Event](/images/4-Events/E1-3.jpeg)
+![Tham gia Event](/images/4-Events/E1-4.jpeg)
+![Tham gia Event](/images/4-Events/E1-5.jpeg)
+![Tham gia Event](/images/4-Events/E1-6.jpeg)
 
 ### Personal Reflection
 
