@@ -55,10 +55,15 @@ The event in HCMC focused on 2 technical tracks that I was very interested in:
 ### Event Photos
 
 ![Tham gia Event](/images/4-Events/E1-1.jpeg)
+
 ![Tham gia Event](/images/4-Events/E1-2.jpeg)
+
 ![Tham gia Event](/images/4-Events/E1-3.jpeg)
+
 ![Tham gia Event](/images/4-Events/E1-4.jpeg)
+
 ![Tham gia Event](/images/4-Events/E1-5.jpeg)
+
 ![Tham gia Event](/images/4-Events/E1-6.jpeg)
 
 ### Personal Reflection
@@ -69,4 +74,4 @@ I felt the closeness and high practicality. Instead of just listening to macro-l
 
 The event helped reinforce my belief in the **Cloud Engineer** path I am pursuing. Especially, early access to GenAI knowledge gave me more ideas to propose improvements for the team's upcoming graduation project (Final Showcase).
 
-> **Conclusion:** An effective knowledge "recharge" day right at the "headquarters" of AWS Vietnam! ☁️🚀
+> **Conclusion:** An effective knowledge "recharge" day right at the "headquarters" of AWS Vietnam!

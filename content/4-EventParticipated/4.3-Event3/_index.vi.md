@@ -57,14 +57,13 @@ Workshop kéo dài cả ngày với khối lượng kiến thức chuyên sâu, 
 
 ### Hình ảnh sự kiện
 
-![CI/CD Pipeline Demo](/images/4-Events/devops-workshop-1.jpg)
-*(Mô hình CI/CD Pipeline hoàn chỉnh trên AWS)*
+![Tham gia Event](/images/4-Events/E3-1.jpeg)
 
-![Thực hành CDK](/images/4-Events/devops-workshop-2.jpg)
-*(Demo triển khai hạ tầng bằng AWS CDK)*
+![Tham gia Event](/images/4-Events/E3-2.jpeg)
 
-![CloudWatch Dashboard](/images/4-Events/devops-workshop-3.jpg)
-*(Giao diện giám sát hệ thống Full-stack)*
+![Tham gia Event](/images/4-Events/E3-3.jpeg)
+
+![Tham gia Event](/images/4-Events/E3-4.jpeg)
 
 ### Cảm nhận cá nhân
 

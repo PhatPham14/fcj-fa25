@@ -57,14 +57,13 @@ The full-day workshop covered intensive technical knowledge, divided into mornin
 
 ### Event Photos
 
-![CI/CD Pipeline Demo](/images/4-Events/devops-workshop-1.jpg)
-*(Complete CI/CD Pipeline model on AWS)*
+![Participating in Event](/images/4-Events/E3-1.jpeg)
 
-![CDK Practice](/images/4-Events/devops-workshop-2.jpg)
-*(Infrastructure deployment demo using AWS CDK)*
+![Participating in Event](/images/4-Events/E3-2.jpeg)
 
-![CloudWatch Dashboard](/images/4-Events/devops-workshop-3.jpg)
-*(Full-stack system monitoring interface)*
+![Participating in Event](/images/4-Events/E3-3.jpeg)
+
+![Participating in Event](/images/4-Events/E3-4.jpeg)
 
 ### Personal Reflection
 

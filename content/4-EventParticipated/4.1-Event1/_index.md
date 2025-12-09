@@ -55,10 +55,15 @@ Sự kiện tại TP.HCM tập trung vào 2 track kỹ thuật chính mà em r�
 ### Hình ảnh sự kiện
 
 ![Participating in Event](/images/4-Events/E1-1.jpeg)
+
 ![Participating in Event](/images/4-Events/E1-2.jpeg)
+
 ![Participating in Event](/images/4-Events/E1-3.jpeg)
+
 ![Participating in Event](/images/4-Events/E1-4.jpeg)
+
 ![Participating in Event](/images/4-Events/E1-5.jpeg)
+
 ![Participating in Event](/images/4-Events/E1-6.jpeg)
 
 ### Cảm nhận cá nhân
@@ -69,4 +74,4 @@ Em cảm nhận được sự gần gũi và tính thực tiễn cao. Thay vì c
 
 Sự kiện giúp em củng cố niềm tin vào con đường **Cloud Engineer** mà em đang theo đuổi. Đặc biệt, việc được tiếp cận sớm với các kiến thức về GenAI giúp em có thêm ý tưởng để đề xuất cải tiến cho dự án tốt nghiệp (Final Showcase) sắp tới của nhóm.
 
-> **Lời kết:** Một ngày "nạp" kiến thức đầy hiệu quả ngay tại "đại bản doanh" của AWS Vietnam! ☁️🚀
+> **Lời kết:** Một ngày "nạp" kiến thức đầy hiệu quả ngay tại "đại bản doanh" của AWS Vietnam!

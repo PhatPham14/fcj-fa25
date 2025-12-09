@@ -60,14 +60,7 @@ The workshop focused heavily on Security Best Practices, divided into in-depth s
 
 ### Event Photos
 
-![Security Session](/images/4-Events/security-workshop-1.jpg)
-*(High focus during the Security Pillar session)*
-
-![IR Demo](/images/4-Events/security-workshop-2.jpg)
-*(Simulating a real-world security incident response process)*
-
-![Workshop Wrap-up](/images/4-Events/security-workshop-3.jpg)
-*(Group photo wrapping up the workshop series)*
+![Participating in Event](/images/4-Events/E4.jpeg)
 
 ### Personal Reflection
 

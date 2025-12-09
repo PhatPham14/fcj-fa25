@@ -60,14 +60,7 @@ Buổi workshop tập trung cao độ vào các thực hành bảo mật tốt n
 
 ### Hình ảnh sự kiện
 
-![Không gian lớp học Security](/images/4-Events/security-workshop-1.jpg)
-*(Tập trung cao độ tại phiên Security Pillar)*
-
-![Demo Incident Response](/images/4-Events/security-workshop-2.jpg)
-*(Mô phỏng quy trình xử lý sự cố bảo mật thực tế)*
-
-![Tổng kết khóa học](/images/4-Events/security-workshop-3.jpg)
-*(Chụp ảnh lưu niệm tổng kết chuỗi workshop)*
+![Tham gia Event](/images/4-Events/E4.jpeg)
 
 ### Cảm nhận cá nhân
 

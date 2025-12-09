@@ -55,8 +55,11 @@ The workshop was divided into two in-depth technical sessions with practical Dem
 ### Event Photos
 
 ![Participating in Event](/images/4-Events/E2-1.jpeg)
+
 ![Participating in Event](/images/4-Events/E2-2.jpeg)
+
 ![Participating in Event](/images/4-Events/E2-3.jpeg)
+
 ![Participating in Event](/images/4-Events/E2-4.jpeg)
 
 ### Personal Reflection
