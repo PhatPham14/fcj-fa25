@@ -1,42 +1,61 @@
 ---
-title: "Events Participated"
-date: 2025-09-08
+title: "Participated Events"
+date: 2025-09-09
 weight: 4
 chapter: false
 pre: " <b> 4. </b> "
 ---
 
+> In this section, I list the technology events and in-depth workshops I participated in during my internship. These were key milestones that helped me update the latest technology trends from AWS and reinforce practical skills for the capstone project.
 
+During the internship, I participated in **4 main events**. Each event was a memorable experience providing new and useful knowledge, along with valuable networking opportunities.
 
-> In this section, you should list and describe in detail the events you have participated in during your internship or work experience.  
-> 
-> Each event should be presented in the format Event 1, Event 2, Event 3…, along with the following details:
-> * Event name
-> * Date and time
-> * Location (if applicable)
-> * Your role in the event (attendee, event support, speaker, etc.)
-> * A brief description of the event’s content and main activities
-> * Outcomes or value gained (lessons learned, new skills, contribution to the team/project)
-> * This listing helps demonstrate your actual participation as well as the soft skills and experience you have gained from each event.
+### [Event 1: AWS Cloud Day Vietnam 2025 - HCMC Connect Edition](4.1-Event1/)
+&emsp;**Event Name:** AWS Cloud Day Vietnam 2025 - HCMC Connect Edition
 
-During my internship, I participated in two events. Each one was a memorable experience that provided new, interesting, and useful knowledge, along with gifts and wonderful moments.
+&emsp;**Date & Time:** 08:30, September 18, 2025
 
-### [Event 1](4.1-Event1/)  
-&emsp;**Event Name:** GenAI-powered App-DB Modernization workshop  
+&emsp;**Location:** AWS Vietnam Office, Floors 26 & 36, Bitexco Financial Tower, District 1, HCMC
 
-&emsp;**Date & Time:** 09:00, August 13, 2025  
+&emsp;**Role:** Attendee
 
-&emsp;**Location:** 26th Floor, Bitexco Tower, 02 Hai Trieu Street, Saigon Ward, Ho Chi Minh City  
-
-&emsp;**Role:** Attendee  
+&emsp;**Description:** Participated in the connect session dedicated to the Builders community in HCMC. Updated on new trends in Generative AI, Modernization, and joined technical Breakout Tracks on cloud migration strategies.
 
 ---
 
-### [Event 2](4.2-Event2/)  
-&emsp;**Event Name:** GenAI-powered App-DB Modernization workshop  
+### [Event 2: AI/ML/GenAI on AWS Workshop](4.2-Event2/)
+&emsp;**Event Name:** AI/ML/GenAI on AWS Workshop
 
-&emsp;**Date & Time:** 09:00, August 13, 2025  
+&emsp;**Date & Time:** 08:30, November 15, 2025
 
-&emsp;**Location:** 26th Floor, Bitexco Tower, 02 Hai Trieu Street, Saigon Ward, Ho Chi Minh City  
+&emsp;**Location:** AWS Vietnam Office, Bitexco Financial Tower, District 1, HCMC
 
-&emsp;**Role:** Attendee  
+&emsp;**Role:** Attendee
+
+&emsp;**Description:** In-depth workshop on Machine Learning and Generative AI. Practiced building a Chatbot using Amazon Bedrock, learned MLOps processes with Amazon SageMaker, and explored Prompt Engineering techniques.
+
+---
+
+### [Event 3: DevOps on AWS Workshop](4.3-Event3/)
+&emsp;**Event Name:** DevOps on AWS Workshop
+
+&emsp;**Date & Time:** 08:30, November 17, 2025
+
+&emsp;**Location:** AWS Vietnam Office, Bitexco Financial Tower, District 1, HCMC
+
+&emsp;**Role:** Attendee
+
+&emsp;**Description:** Explored DevOps culture, built complete automated CI/CD pipelines with AWS CodePipeline, managed infrastructure as code (IaC) using AWS CDK, and implemented system observability using AWS X-Ray.
+
+---
+
+### [Event 4: AWS Well-Architected Security Pillar](4.4-Event4/)
+&emsp;**Event Name:** AWS Well-Architected Security Pillar Workshop
+
+&emsp;**Date & Time:** 08:30, November 29, 2025
+
+&emsp;**Location:** AWS Vietnam Office, Bitexco Financial Tower, District 1, HCMC
+
+&emsp;**Role:** Attendee
+
+&emsp;**Description:** Reinforced cloud security mindset based on the 5 security pillars. Practiced Incident Response scenarios, Identity management, and data protection according to AWS Well-Architected standards.

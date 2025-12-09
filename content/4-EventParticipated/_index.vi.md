@@ -1,44 +1,35 @@
 ---
 title: "Các events đã tham gia"
-date: 2025-09-08
+date: 2025-09-09
 weight: 4
 chapter: false
 pre: " <b> 4. </b> "
 ---
 
+> Trong phần này là danh sách các sự kiện công nghệ và workshop chuyên sâu mà em đã tham gia trong suốt quá trình thực tập. Đây là những cột mốc quan trọng giúp em cập nhật xu hướng công nghệ mới nhất từ AWS và củng cố kỹ năng thực chiến cho dự án cuối khóa.
 
+Trong quá trình thực tập, em đã tham gia **4 events** chính, bao gồm sự kiện cộng đồng lớn nhất năm của AWS và chuỗi workshop kỹ thuật chuyên đề:
 
-> Trong phần này, các bạn cần liệt kê và mô tả chi tiết các sự kiện (event) mà mình đã tham gia trong suốt quá trình thực tập hoặc làm việc. 
-> 
-> Mỗi sự kiện nên được trình bày theo định dạng Event 1, Event 2, Event 3…, kèm theo các thông tin:
-> * Tên sự kiện
-> * Thời gian tổ chức
-> * Địa điểm (nếu có)
-> * Vai trò của bạn trong sự kiện (người tham dự, hỗ trợ tổ chức, diễn giả, v.v.)
-> * Mô tả ngắn gọn nội dung và hoạt động chính trong sự kiện
-> * Kết quả hoặc giá trị đạt được (bài học, kỹ năng mới, đóng góp cho nhóm/dự án)
-> * Việc liệt kê này giúp thể hiện rõ sự tham gia thực tế của bạn, cũng như các kỹ năng mềm và kinh nghiệm bạn đã tích lũy qua từng sự kiện.
+### [Event 1: AWS Cloud Day Vietnam 2025 - HCMC Connect Edition](4.1-Event1/)
+&emsp;**Thời gian:** 08:30 ngày 18/09/2025
+&emsp;**Địa điểm:** Văn phòng AWS Vietnam, Tầng 26 & 36, Bitexco Financial Tower
+&emsp;**Vai trò:** Người tham dự
+&emsp;**Nội dung:** Tham gia phiên kết nối dành riêng cho cộng đồng Builders tại TP.HCM. Cập nhật các xu hướng mới về Generative AI, Modernization và tham gia các phiên thảo luận kỹ thuật (Breakout Tracks) về điện toán đám mây.
 
+### [Event 2: AI/ML/GenAI on AWS Workshop](4.2-Event2/)
+&emsp;**Thời gian:** 08:30 ngày 15/11/2025
+&emsp;**Địa điểm:** Văn phòng AWS Vietnam, Bitexco Financial Tower
+&emsp;**Vai trò:** Người tham dự
+&emsp;**Nội dung:** Workshop chuyên sâu về Machine Learning và Generative AI. Thực hành xây dựng Chatbot sử dụng Amazon Bedrock, tìm hiểu quy trình MLOps với Amazon SageMaker và các kỹ thuật Prompt Engineering.
 
-Trong quá trình thực tập, em đã tham gia 2 events, với mỗi event là một trải nghiệm đáng nhớ với những kiến thức mới, hay và bổ ích, cùng với đó là nhứng món quà và những khoảnh khắc rất tuyệt vời.
+### [Event 3: DevOps on AWS Workshop](4.3-Event3/)
+&emsp;**Thời gian:** 08:30 ngày 17/11/2025
+&emsp;**Địa điểm:** Văn phòng AWS Vietnam, Bitexco Financial Tower
+&emsp;**Vai trò:** Người tham dự
+&emsp;**Nội dung:** Tìm hiểu văn hóa DevOps, xây dựng quy trình CI/CD tự động hoàn chỉnh với AWS CodePipeline, quản lý hạ tầng bằng mã (IaC) với AWS CDK và giám sát hệ thống (Observability).
 
-### [Event 1](4.1-Event1/)
-&emsp;**Tên sự kiện:** GenAI-powered App-DB Modernization workshop
-
-&emsp;**Thời gian:** 09:00 ngày 13/08/2025
-
-&emsp;**Địa điểm:** Tầng 26, tòa nhà Bitexco, số 02 đường Hải Triều, phường Sài Gòn, thành phố Hồ Chí Minh
-
-&emsp;**Vai trò trong sự kiện:** Người tham dự 
-
-
-
-### [Event 2](4.2-Event2/)
-&emsp;**Tên sự kiện:** GenAI-powered App-DB Modernization workshop
-
-&emsp;**Thời gian:** 09:00 ngày 13/08/2025
-
-&emsp;**Địa điểm:** Tầng 26, tòa nhà Bitexco, số 02 đường Hải Triều, phường Sài Gòn, thành phố Hồ Chí Minh
-
-&emsp;**Vai trò trong sự kiện:** Người tham dự 
-
+### [Event 4: AWS Well-Architected Security Pillar](4.4-Event4/)
+&emsp;**Thời gian:** 08:30 ngày 29/11/2025
+&emsp;**Địa điểm:** Văn phòng AWS Vietnam, Bitexco Financial Tower
+&emsp;**Vai trò:** Người tham dự
+&emsp;**Nội dung:** Củng cố tư duy bảo mật đám mây dựa trên 5 trụ cột bảo mật. Thực hành các kịch bản phản ứng sự cố (Incident Response), quản lý định danh (Identity) và bảo vệ dữ liệu theo tiêu chuẩn AWS Well-Architected.

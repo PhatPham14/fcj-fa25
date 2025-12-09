@@ -1,7 +1,7 @@
 ---
 title: "Event 1: AWS Cloud Day Vietnam 2025 - HCMC Connect Edition"
 date: 2025-09-18
-weight: 2
+weight: 1
 chapter: false
 pre: " <b> 4.1. </b> "
 ---
