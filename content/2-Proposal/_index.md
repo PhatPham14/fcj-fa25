@@ -1,113 +1,158 @@
 ---
 title: "Proposal"
-date: 2025-09-08
+date: "2025-11-05"
 weight: 2
 chapter: false
 pre: " <b> 2. </b> "
 ---
 
-
-In this section, you need to summarize the contents of the workshop that you **plan** to conduct.
-
-# IoT Weather Platform for Lab Research
-## A Unified AWS Serverless Solution for Real-Time Weather Monitoring
+# APEX-EV Electric Vehicle Service Platform 
 
 ### 1. Executive Summary
-The IoT Weather Platform is designed for the ITea Lab team in Ho Chi Minh City to enhance weather data collection and analysis. It supports up to 5 weather stations, with potential scalability to 10-15, utilizing Raspberry Pi edge devices with ESP32 sensors to transmit data via MQTT. The platform leverages AWS Serverless services to deliver real-time monitoring, predictive analytics, and cost efficiency, with access restricted to 5 lab members via Amazon Cognito.
+RenGen is a comprehensive management platform designed to digitize and optimize maintenance workflows at service centers. The system centrally manages the entire service lifecycle—from request intake and repair processing to customer care—helping to eliminate manual tasks and enhance efficiency. Leveraging the power of the AWS cloud, RenGen combines flexible container architecture on Amazon ECS Fargate with the intelligent processing capabilities of Generative AI through Amazon Bedrock. The solution integrates automated development processes (CI/CD) from GitLab, ensuring rapid deployment speeds, high security, and rigorous monitoring, delivering a superior experience for end-users.
 
 ### 2. Problem Statement
 ### What’s the Problem?
-Current weather stations require manual data collection, becoming unmanageable with multiple units. There is no centralized system for real-time data or analytics, and third-party platforms are costly and overly complex.
+Current operational processes rely heavily on manual methods, leading to inefficiencies, fragmented data, and a lack of intelligent support tools for automated customer interaction.
 
 ### The Solution
-The platform uses AWS IoT Core to ingest MQTT data, AWS Lambda and API Gateway for processing, Amazon S3 for storage (including a data lake), and AWS Glue Crawlers and ETL jobs to extract, transform, and load data from the S3 data lake to another S3 bucket for analysis. AWS Amplify with Next.js provides the web interface, and Amazon Cognito ensures secure access. Similar to Thingsboard and CoreIoT, users can register new devices and manage connections, though this platform operates on a smaller scale and is designed for private use. Key features include real-time dashboards, trend analysis, and low operational costs.
+The platform employs a modern architecture, starting at the Edge layer with Amazon Route 53 for user routing. The interface (Frontend) is hosted on AWS Amplify Hosting, ensuring fast and stable access.
+Amazon API Gateway acts as the central hub, intelligently routing requests.
+
+To ensure security, critical components such as ECS Fargate and the Amazon RDS database are placed in a Private Subnet, completely isolated from the public internet. Image data is stored on Amazon S3 and accessed securely via S3 Endpoints. Additionally, the software development process is fully automated: source code from GitLab is packaged and pushed to Amazon ECR for deployment to ECS.
 
 ### Benefits and Return on Investment
-The solution establishes a foundational resource for lab members to develop a larger IoT platform, serving as a study resource, and provides a data foundation for AI enthusiasts for model training or analysis. It reduces manual reporting for each station via a centralized platform, simplifying management and maintenance, and improves data reliability. Monthly costs are $0.66 USD per the AWS Pricing Calculator, with a 12-month total of $7.92 USD. All IoT equipment costs are covered by the existing weather station setup, eliminating additional development expenses. The break-even period of 6-12 months is achieved through significant time savings from reduced manual work.
+Adopting this architecture delivers a significant competitive advantage by integrating Artificial Intelligence (GenAI) via Amazon Bedrock, which helps automate customer care and data analysis. The system ensures high availability and data security thanks to the VPC network separation design (Public/Private subnets).
+
+The CI/CD process integrated with GitLab and ECR helps minimize downtime when updating new features, while Amazon CloudWatch provides comprehensive monitoring to detect incidents instantly. The cost model is optimized thanks to the use of Fargate (Serverless container) and Lambda (Pay-per-use), ensuring businesses only pay for the actual resources used. This investment not only resolves current operational challenges but also creates a solid technological foundation for long-term growth, with the expected Return on Investment (ROI) period significantly shortened.
 
 ### 3. Solution Architecture
-The platform employs a serverless AWS architecture to manage data from 5 Raspberry Pi-based stations, scalable to 15. Data is ingested via AWS IoT Core, stored in an S3 data lake, and processed by AWS Glue Crawlers and ETL jobs to transform and load it into another S3 bucket for analysis. Lambda and API Gateway handle additional processing, while Amplify with Next.js hosts the dashboard, secured by Cognito. The architecture is detailed below:
+The RenGen management platform utilizes a modern architecture deployed on AWS (Region **ap-southeast-2**), initiated by user access via **Amazon Route 53** at the Edge layer. The User Interface (Frontend) is hosted on **AWS Amplify Hosting**, which establishes a direct connection to **Amazon API Gateway** as the central entry point.
 
-![IoT Weather Station Architecture](/images/2-Proposal/edge_architecture.jpeg)
+From the API Gateway, the data flow is strategically divided into three distinct paths:
 
-![IoT Weather Platform Architecture](/images/2-Proposal/platform_architecture.jpeg)
+* **AI Tasks:** Requests are routed to **AWS Lambda** to interact with **Amazon Bedrock** for generative AI capabilities.
+* **Notification Tasks:** Asynchronous requests trigger **AWS Lambda** to handle email communications via **Amazon SES**.
+* **Core Business Logic:** Traffic is directed through an **Application Load Balancer (ALB)** located in the Public Subnet, then forwarded to **Amazon ECS Fargate** instances secured within a Private Subnet.
+
+**Data & Security:**
+
+Relational data is persistently stored in **Amazon RDS** within the Private Subnet. To optimize security and performance, the architecture utilizes **VPC Endpoints** to keep traffic strictly within the AWS internal network:
+
+* Static assets and images stored in **Amazon S3** are accessed securely via **S3 Endpoints**.
+* Container images are pulled directly from **Amazon ECR** via **ECR Endpoints**.
+
+By leveraging these endpoints, the system eliminates the need for a NAT Gateway, thereby reducing costs and minimizing public internet exposure.
+
+**DevOps & Monitoring:**
+
+* **GitLab** is used for source code management and CI/CD, automatically pushing deployments to Amplify (Frontend) and container images to ECR (Backend).
+
+![APEX-EV Platform Architecture](/images/2-Proposal/RenGen.jpeg)
 
 ### AWS Services Used
-- **AWS IoT Core**: Ingests MQTT data from 5 stations, scalable to 15.
-- **AWS Lambda**: Processes data and triggers Glue jobs (two functions).
-- **Amazon API Gateway**: Facilitates web app communication.
-- **Amazon S3**: Stores raw data in a data lake and processed outputs (two buckets).
-- **AWS Glue**: Crawlers catalog data, and ETL jobs transform and load it.
-- **AWS Amplify**: Hosts the Next.js web interface.
-- **Amazon Cognito**: Secures access for lab users.
+- *Route 53*: DNS service, responsible for routing the domain (Edge layer) to the application. 
+- *AWS Amplify Hosting*: Hosts the web interface (frontend) and can integrate with CDN/WAF. In the diagram, it receives traffic from Route 53.
+- *Amazon API Gateway*: The main entry point (Gateway), receiving and routing all requests from the frontend/Amplify to processing services.  
+- *AWS Lambda (Bedrock)*: Handles AI/Generative AI tasks (prediction/content generation) by communicating with Amazon Bedrock.
+- *AWS Lambda (SES)*: Handles asynchronous tasks, such as processing notifications to send emails via AWS SES.
+- *Amazon Bedrock*: General AI service (Gen AI), providing foundation models to execute intelligent business operations.
+- *AWS SES*: Email sending service, performs the sending of notifications, quotes, or processing results from Lambda.
+- *VPC*: Virtual network environment containing and protecting AWS resources (like ALB, ECS Fargate, RDS).
+- *ALB (Application Load Balancer)*: Load balancer, distributing traffic from API Gateway to application containers running on ECS Fargate.
+- *Amazon ECS Fargate*: Runs the backend application as containers without server management, handling core business logic.
+- *Amazon RDS*: Provides a relational database, placed in a Private Subnet to store structured data.
+- *Amazon S3*: Stores multimedia files like photos or other large data.
+- *ECR*: Repository for application container images (Docker), used by ECS Fargate for deployment.
+- *AWS CloudWatch*: Monitoring service, collecting logs and metrics from the entire system to track performance and detect issues.
 
 ### Component Design
-- **Edge Devices**: Raspberry Pi collects and filters sensor data, sending it to IoT Core.
-- **Data Ingestion**: AWS IoT Core receives MQTT messages from the edge devices.
-- **Data Storage**: Raw data is stored in an S3 data lake; processed data is stored in another S3 bucket.
-- **Data Processing**: AWS Glue Crawlers catalog the data, and ETL jobs transform it for analysis.
-- **Web Interface**: AWS Amplify hosts a Next.js app for real-time dashboards and analytics.
-- **User Management**: Amazon Cognito manages user access, allowing up to 5 active accounts.
+
+* **Request Handling:**
+    **Amazon Route 53** routes user domain requests to **AWS Amplify Hosting**, where the frontend interface is hosted. From there, API requests are forwarded to **Amazon API Gateway**, which acts as the central entry point to receive and route all incoming traffic.
+
+* **Business Logic Processing:**
+    * **Core Logic:** All primary business operations are handled by containerized applications running on **Amazon ECS Fargate**, deployed within a Private Subnet to ensure maximum security.
+    * **AI & Asynchronous Tasks:** Generative AI tasks are processed by **AWS Lambda** interacting with **Amazon Bedrock**. Auxiliary tasks, such as email notifications, are handled by separate **AWS Lambda** functions triggering **Amazon SES**.
+
+* **Network Infrastructure:**
+    * **Public Subnet:** Hosts the **Application Load Balancer (ALB)** to receive and distribute external traffic.
+    * **Private Subnet:** Dedicated to sensitive resources including ECS Fargate and Amazon RDS, ensuring they are isolated from direct public internet access.
+    * **VPC Endpoints:** The system explicitly utilizes **S3 Endpoints** and **ECR Endpoints**. This design allows ECS Fargate to pull container images and access file storage securely within the AWS internal network, **without traversing the public internet**.
+
+* **Data Storage:**
+    * **Amazon RDS:** Stores sensitive, structured relational data.
+    * **Amazon S3:** Stores multimedia files and large datasets.
+
+* **Deployment and Monitoring:**
+    The deployment pipeline is managed via **GitLab**, which triggers updates to AWS Amplify (Frontend) and pushes Docker images to **Amazon ECR** (Backend). **Amazon CloudWatch** provides comprehensive monitoring of performance logs and metrics across all services, from ECS and Lambda to RDS.
 
 ### 4. Technical Implementation
 **Implementation Phases**
-This project has two parts—setting up weather edge stations and building the weather platform—each following 4 phases:
-- Build Theory and Draw Architecture: Research Raspberry Pi setup with ESP32 sensors and design the AWS serverless architecture (1 month pre-internship)
-- Calculate Price and Check Practicality: Use AWS Pricing Calculator to estimate costs and adjust if needed (Month 1).
-- Fix Architecture for Cost or Solution Fit: Tweak the design (e.g., optimize Lambda with Next.js) to stay cost-effective and usable (Month 2).
-- Develop, Test, and Deploy: Code the Raspberry Pi setup, AWS services with CDK/SDK, and Next.js app, then test and release to production (Months 2-3).
-
-**Technical Requirements**
-- Weather Edge Station: Sensors (temperature, humidity, rainfall, wind speed), a microcontroller (ESP32), and a Raspberry Pi as the edge device. Raspberry Pi runs Raspbian, handles Docker for filtering, and sends 1 MB/day per station via MQTT over Wi-Fi.
-- Weather Platform: Practical knowledge of AWS Amplify (hosting Next.js), Lambda (minimal use due to Next.js), AWS Glue (ETL), S3 (two buckets), IoT Core (gateway and rules), and Cognito (5 users). Use AWS CDK/SDK to code interactions (e.g., IoT Core rules to S3). Next.js reduces Lambda workload for the fullstack web app.
+The development project for the RenGen Smart Electric Vehicle Maintenance Platform — including the integration of an AI virtual assistant and a service management system — undergoes 4 phases:
+1. *Research and Architectural Design*: Research suitable technologies (React.js, Spring Boot, AWS Bedrock) and design a system architecture combining Containers (ECS) and Serverless (Lambda) on AWS (1 month prior to commencement).
+2. *Cost Estimation and Feasibility Check*: Use the AWS Pricing Calculator to estimate operating costs for core services such as ECS Fargate, RDS, and token costs for Amazon Bedrock, and propose the most feasible solution.
+3. *Architecture Adjustment for Cost/Solution Optimization*: Refine the architecture, select appropriate configurations for ECS Fargate and RDS, and optimize Lambda runtime (timeouts) to balance AI processing performance and cost.
+4. *Development, Testing, and Deployment*: Program the React.js application (Frontend) and Spring Boot (Backend), integrate the Bedrock Agent, deploy CI/CD pipelines via GitLab, package Docker images to ECR, and launch operations on ECS. Technical Requirements
+*Technical Requirements*  
+- *User Interface (Frontend)*: Practical knowledge of React.js to build scheduling interfaces and chat with the AI virtual assistant. Use AWS Amplify to automate the deployment process (Hosting), connect with Amazon API Gateway to send secure processing requests, ensuring a smooth user experience on all devices.
+- *Core System (Backend & Infrastructure)*: In-depth knowledge of Java/Spring Boot to develop maintenance business logic. The application is packaged using Docker, with images stored on AWS ECR and running on Amazon ECS Fargate. Requires understanding of Amazon RDS for relational databases (storing vehicle profiles, maintenance history). Specifically, requires AWS Lambda (Python) programming skills to connect with Amazon Bedrock (AI/Chatbot processing) and AWS SES (sending asynchronous email notifications). Manage detailed user authentication and authorization (customers/technicians) via Amazon Cognito.
 
 ### 5. Timeline & Milestones
 **Project Timeline**
-- Pre-Internship (Month 0): 1 month for planning and old station review.
-- Internship (Months 1-3): 3 months.
-    - Month 1: Study AWS and upgrade hardware.
-    - Month 2: Design and adjust architecture.
-    - Month 3: Implement, test, and launch.
-- Post-Launch: Up to 1 year for research.
-
+1. *Phase 1 (Week 1-2): Design and Foundation:*:
+- Analyze & Design detailed AWS architecture (VPC, Subnets, Security Groups). Design Database (RDS Schema) and define APIs (Swagger/OpenAPI).
+- Configure infrastructure environment: Setup VPC (Public/Private Subnets), IAM Roles, and Amazon Cognito (User Pools).
+- Setup CI/CD: Configure Pipeline on GitLab to automatically build Docker Images, push to Amazon ECR, and deploy Frontend to AWS Amplify.
+2. *Phase 2 (Week 3-4): Core Service Flow Development:*: 
+- Develop Customer flow (Frontend/Backend): Registration/Login, Vehicle Profile Management, Appointment Scheduling (stored in RDS).
+- Develop Service Advisor flow: Vehicle Reception, Create Quotations and Repair Orders.
+- Phát triển luồng Kỹ thuật viên: Xem danh sách việc cần làm (Task list), Cập nhật tiến độ bảo dưỡng và tải ảnh/video lên Amazon S3.
+3. *Phase 3 (Week 5-6): Administration & Advanced Feature Development:*: 
+- Build Administration Module: Report Dashboard, Spare Parts Management (Inventory), and Personnel Management.Build Administration Module: Report Dashboard, Spare Parts Management (Inventory), and Personnel Management.
+- Write AWS Lambda to connect Amazon Bedrock Agent (AI Chatbot for customer support) and expose via API Gateway.
+- Write AWS Lambda to trigger AWS SES for sending automatic notification emails/quotations to customers.
+- Configure NAT Gateway so resources in Private Subnet (Lambda, ECS) can securely connect to the Internet/AWS Services.
+4. *Phase 4 (Week 7-8): Testing, Optimization, and Operation:*:  
+- Internal User Acceptance Testing (UAT) to ensure the flow from Web -> API Gateway -> Lambda/ECS -> DB operates smoothly.
+- Optimize security: Configure AWS WAF (block SQL Injection, XSS) and review IAM access rights.
+- Operational monitoring: Setup Dashboard on Amazon CloudWatch to track logs and metrics of ECS Fargate and Lambda.
+- Official deployment.
 ### 6. Budget Estimation
-You can find the budget estimation on the [AWS Pricing Calculator](https://calculator.aws/#/estimate?id=621f38b12a1ef026842ba2ddfe46ff936ed4ab01).  
-Or you can download the [Budget Estimation File](../attachments/budget_estimation.pdf).
+**Infrastructure Costs**
 
-### Infrastructure Costs
-- AWS Services:
-    - AWS Lambda: $0.00/month (1,000 requests, 512 MB storage).
-    - S3 Standard: $0.15/month (6 GB, 2,100 requests, 1 GB scanned).
-    - Data Transfer: $0.02/month (1 GB inbound, 1 GB outbound).
-    - AWS Amplify: $0.35/month (256 MB, 500 ms requests).
-    - Amazon API Gateway: $0.01/month (2,000 requests).
-    - AWS Glue ETL Jobs: $0.02/month (2 DPUs).
-    - AWS Glue Crawlers: $0.07/month (1 crawler).
-    - MQTT (IoT Core): $0.08/month (5 devices, 45,000 messages).
+- Amazon ECS Fargate: ~11.00 USD/month.
+- Application Load Balancer (ALB): ~16.43 USD/month.
+- Amazon Bedrock (AI): ~5.00 USD/month (Calculated by Token count).
+- AWS Lambda: 0.00 USD/month (Free Tier).
+- Amazon RDS & ElastiCache: 0.00 USD/month (Free Tier).
+- S3 Standard: ~0.15 USD/month.
+- AWS Amplify & API Gateway: ~0.50 USD/month.
+- Amazon CloudWatch: 0.00 USD/month (Free Tier).
+- Amazon SES: 0.00 USD/month (Free Tier).
 
-Total: $0.7/month, $8.40/12 months
-
-- Hardware: $265 one-time (Raspberry Pi 5 and sensors).
+*Total:* ~32.63/month.
 
 ### 7. Risk Assessment
 #### Risk Matrix
-- Network Outages: Medium impact, medium probability.
-- Sensor Failures: High impact, low probability.
-- Cost Overruns: Medium impact, low probability.
-
+- System downtime: High impact, low probability.
+- Security breach/Data loss: Very high impact, low probability.
+- Operational cost overrun: Medium impact, medium probability.
 #### Mitigation Strategies
-- Network: Local storage on Raspberry Pi with Docker.
-- Sensors: Regular checks and spares.
-- Cost: AWS budget alerts and optimization.
-
+- System: Deploy infrastructure across Multi-AZ for RDS and ECS Fargate. Use Application Load Balancer for automatic load distribution and recovery.
+- Security: Use AWS WAF to filter malicious requests. Strict authorization with Amazon Cognito and apply least privilege principle. Backend placed in a separate network (Private Subnet).
+- Cost: Use AWS Budgets to set alerts when costs exceed thresholds. Regularly monitor and optimize resources (right-sizing) to avoid waste.
+- Incorrect AI response: Medium impact, medium probability.
 #### Contingency Plans
-- Revert to manual methods if AWS fails.
-- Use CloudFormation for cost-related rollbacks.
+- System: Deploy ECS Fargate and RDS infrastructure across Multi-AZ to ensure high availability. Use Application Load Balancer for automatic load coordination and Auto-scaling to expand Tasks when traffic spikes.
+- AI Quality: Limit Bedrock Agent response scope via strict Prompt Engineering (System Prompts) and only allow information retrieval from moderated Knowledge Bases.
+- Enable Automated Backups for RDS and Point-in-time Recovery to restore data to any point in time.
 
 ### 8. Expected Outcomes
 #### Technical Improvements: 
-Real-time data and analytics replace manual processes.  
-Scalable to 10-15 stations.
+Technical Improvements: Successfully build a modern Hybrid Architecture combining Microservices (ECS Fargate) and Serverless (Lambda, Bedrock), ensuring flexible scalability without managing physical servers.
+
 #### Long-term Value
-1-year data foundation for AI research.  
-Reusable for future projects.
+Enhance customer experience: AI virtual assistant operating 24/7 helps reduce waiting time, increasing appointment conversion rates and car owner satisfaction.
+
+Data assets: Maintenance history and interaction behavior data are centrally stored on RDS/S3, creating a premise for deploying AI Predictive Maintenance models for electric vehicle batteries and motors in the future.
