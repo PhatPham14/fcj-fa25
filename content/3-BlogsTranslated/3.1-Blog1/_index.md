@@ -1,7 +1,7 @@
 ---
 title: "Characteristics of Financial Services HPC Workloads on the Cloud"
 date: 2025-04-15
-weight: 10
+weight: 1
 chapter: false
 pre: " <b> 3.1. </b> "
 tags:
@@ -12,12 +12,12 @@ tags:
 
 **By Mark Norton and Flamur Gogolli**
 
-This post introduces the High Performance Computing (HPC) requirements in the Financial Services Industry (FSI). It defines the technical attributes of compute-heavy workloads and discusses their essential characteristics. Additionally, it provides a decision tree process to help customers select the right HPC platform on the cloud—whether commercial, open-source, or a cloud-native solution—based on customer and workload requirements.
+This post introduces the High Performance Computing (HPC) requirements in the Financial Services Industry (FSI). It defines the technical attributes of compute-heavy workloads and discusses their essential characteristics. Additionally, it provides a decision tree process to help customers select the right HPC platform on the cloud—whether from commercial vendors, open-source, or cloud-native solutions—based on customer and workload requirements.
 
 While it cannot cover every possible option, this article provides guidance on how to achieve price-performance goals and solve HPC challenges using AWS services and solutions, based on experience with Financial Services customers.
 
 In the financial services sector, HPC (also known as Grid computing) has long been used to run simulations and solve complex challenges.
-* **Capital Markets:** HPC systems are used to price financial instruments (e.g., stocks, ETFs, derivatives, bonds) using mathematical models like [Monte Carlo](https://aws.amazon.com/what-is/monte-carlo-simulation/). Utilization models range from latency-sensitive real-time/intraday calculations to large batch workloads that typically run overnight to generate results for internal risk monitoring and regulatory reporting.
+* **Capital Markets:** HPC systems are used to price financial instruments (e.g., stocks, ETFs, derivatives, bonds) using mathematical models like [Monte Carlo](https://aws.amazon.com/what-is/monte-carlo-simulation/). Utilization models range from real-time/intraday latency-sensitive calculations to large batch workloads that typically run overnight.
 * **Investment Management:** HPC is used for pricing and risk analysis, exposure calculation, and the definition, optimization, and back-testing of hedging strategies.
 * **Insurance:** HPC use cases include actuarial modeling and catastrophe simulations to help insurers understand losses, set premium levels, and develop risk mitigation strategies.
 
@@ -27,13 +27,13 @@ In the financial services sector, HPC (also known as Grid computing) has long be
 
 Financial institutions face increasing demand for HPC resources due to regulatory requirements, market volatility, and reporting needs—requiring massive capacity during periods like overnight processing or end-of-quarter reporting.
 
-Many organizations are moving from on-premises infrastructure to the cloud to scale resources up and down on demand while optimizing costs. FSI customers typically migrate their HPC platforms to the cloud in phases:
+Many organizations are moving from on-premises infrastructure to the cloud to scale resources elastically and optimize costs. FSI customers typically migrate their HPC platforms to the cloud in phases:
 
 * **All On-premises:** Scheduler, compute, and data sources are hosted on-site.
 * **Hybrid Burst:** Scheduler, compute, and data remain on-premises but are supplemented by cloud compute capacity during periods of high or burst demand.
 * **Lift and Shift:** The existing scheduler is moved "as-is" to the cloud, running compute nodes on the cloud with configurations similar to on-premises.
-* **AWS Optimized:** The focus is on compute elasticity and using managed services as much as possible, combined with purchasing models (Amazon EC2 Spot, Savings Plans).
-* **AWS Native:** Represents a complete reimagining of traditional HPC platforms, emphasizing cloud-native architectures, serverless building blocks, and optimized hardware (AI accelerators).
+* **AWS Optimized:** The focus is on compute elasticity and using managed services combined with purchasing models (Amazon EC2 Spot, Savings Plans).
+* **AWS Native:** A complete reimagining of traditional HPC platforms, emphasizing cloud-native architectures, serverless building blocks, and optimized hardware (AI accelerators).
 
 ---
 
@@ -94,19 +94,3 @@ View platform selection as the start of a journey. We often see customers contin
 1.  **If maintaining an existing scheduler:**
     * Commercial solutions (IBM, Tibco) offer stability but may lack cloud flexibility.
     * Open-source solutions (Slurm, HTCondor) can utilize AWS ParallelCluster/PCS for better management.
-2.  **If moving to Cloud-native:**
-    * **AWS Batch:** For workloads > 5 minutes.
-    * **AWS Lambda:** For workloads < 15 minutes.
-    * **HTC-Grid:** For high throughput workloads (seconds to minutes).
-
----
-
-#### About the Authors
-
-> **Mark Norton**
->
-> Principal HPC Specialist at AWS with over 30 years of experience. He specializes in designing scalable cloud computing solutions to optimize performance and deliver strategic technological advantages for financial, automotive, and research enterprises.
-
-> **Flamur Gogolli**
->
-> Senior Specialist Solutions Architect at AWS. He has extensive experience in infrastructure modernization, from designing complex systems to operating large-scale workloads. Prior to AWS, he led the cloud-native transformation at JP Morgan.

@@ -1,7 +1,7 @@
 ---
 title: "Đặc điểm của các workload HPC trong dịch vụ tài chính trên cloud"
 date: 2025-04-15
-weight: 10
+weight: 2
 chapter: false
 pre: " <b> 3.1. </b> "
 tags:
@@ -52,7 +52,7 @@ Các workload HPC trong FSI có yêu cầu đa dạng, tuy nhiên có một số
 
 Chúng ta sẽ sử dụng decision tree trong Hình 1 để hướng dẫn lựa chọn nền tảng phù hợp.
 
-[Image placeholder: Decision tree để chọn giải pháp HPC cho cloud dựa trên các đặc điểm workload]
+![pic 1](/images/3-Blog/B1-1.png)
 > *Hình 1. Decision tree để chọn giải pháp HPC cho cloud dựa trên các đặc điểm workload.*
 
 Việc điều hướng bắt đầu với quyết định quan trọng: **Giữ scheduler on-premises hiện có** hay **Xây dựng giải pháp cloud-native mới**.

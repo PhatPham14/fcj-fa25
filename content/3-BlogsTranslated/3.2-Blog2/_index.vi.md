@@ -1,125 +1,141 @@
 ---
-title: "Blog 2"
-date: 2025-09-08
-weight: 1
+title: "AWS IoT Greengrass Nucleus Lite - Cách mạng hóa điện toán biên trên các thiết bị bị giới hạn tài nguyên"
+date: 2025-04-15
+weight: 2
 chapter: false
 pre: " <b> 3.2. </b> "
+tags:
+  - AWS IoT
+  - AWS IoT Greengrass V2
+  - Edge Computing
+  - IoT Edge
 ---
 
+**Bởi Camilla Panni và Greg Breen**
 
+[AWS IoT Greengrass](https://docs.aws.amazon.com/greengrass/v2/developerguide/what-is-iot-greengrass.html) là phần mềm mã nguồn mở chạy ở biên (edge runtime) và dịch vụ cloud giúp bạn xây dựng, triển khai và quản lý các ứng dụng đa tiến trình ở quy mô lớn trên toàn bộ hạm đội thiết bị IoT.
 
-# Bắt đầu với healthcare data lakes: Sử dụng microservices
+Phiên bản AWS IoT Greengrass V2 được ra mắt vào tháng 12 năm 2020 với một Java edge runtime gọi là [nucleus](https://docs.aws.amazon.com/greengrass/v2/developerguide/greengrass-nucleus-component.html). Với [bản phát hành 2.14.0](https://docs.aws.amazon.com/greengrass/v2/developerguide/greengrass-release-2024-12-16.html) vào tháng 12 năm 2024, AWS giới thiệu thêm một tùy chọn edge runtime là **Nucleus Lite** - được viết bằng ngôn ngữ C.
 
-Các data lake có thể giúp các bệnh viện và cơ sở y tế chuyển dữ liệu thành những thông tin chi tiết về doanh nghiệp và duy trì hoạt động kinh doanh liên tục, đồng thời bảo vệ quyền riêng tư của bệnh nhân. **Data lake** là một kho lưu trữ tập trung, được quản lý và bảo mật để lưu trữ tất cả dữ liệu của bạn, cả ở dạng ban đầu và đã xử lý để phân tích. data lake cho phép bạn chia nhỏ các kho chứa dữ liệu và kết hợp các loại phân tích khác nhau để có được thông tin chi tiết và đưa ra các quyết định kinh doanh tốt hơn.
+**AWS IoT Greengrass Nucleus Lite** là một edge runtime [mã nguồn mở](https://github.com/aws-greengrass/aws-greengrass-lite), gọn nhẹ, hướng đến các thiết bị có giới hạn tài nguyên. Nó mở rộng khả năng của AWS IoT Greengrass đến các thiết bị giá rẻ, single-board computer phục vụ các ứng dụng như smart home hub, smart energy meter, smart vehicle, edge AI, và robotics.
 
-Bài đăng trên blog này là một phần của loạt bài lớn hơn về việc bắt đầu cài đặt data lake dành cho lĩnh vực y tế. Trong bài đăng blog cuối cùng của tôi trong loạt bài, *“Bắt đầu với data lake dành cho lĩnh vực y tế: Đào sâu vào Amazon Cognito”*, tôi tập trung vào các chi tiết cụ thể của việc sử dụng Amazon Cognito và Attribute Based Access Control (ABAC) để xác thực và ủy quyền người dùng trong giải pháp data lake y tế. Trong blog này, tôi trình bày chi tiết cách giải pháp đã phát triển ở cấp độ cơ bản, bao gồm các quyết định thiết kế mà tôi đã đưa ra và các tính năng bổ sung được sử dụng. Bạn có thể truy cập các code samples cho giải pháp tại Git repo này để tham khảo.
-
----
-
-## Hướng dẫn kiến trúc
-
-Thay đổi chính kể từ lần trình bày cuối cùng của kiến trúc tổng thể là việc tách dịch vụ đơn lẻ thành một tập hợp các dịch vụ nhỏ để cải thiện khả năng bảo trì và tính linh hoạt. Việc tích hợp một lượng lớn dữ liệu y tế khác nhau thường yêu cầu các trình kết nối chuyên biệt cho từng định dạng; bằng cách giữ chúng được đóng gói riêng biệt với microservices, chúng ta có thể thêm, xóa và sửa đổi từng trình kết nối mà không ảnh hưởng đến những kết nối khác. Các microservices được kết nối rời thông qua tin nhắn publish/subscribe tập trung trong cái mà tôi gọi là “pub/sub hub”.
-
-Giải pháp này đại diện cho những gì tôi sẽ coi là một lần lặp nước rút hợp lý khác từ last post của tôi. Phạm vi vẫn được giới hạn trong việc nhập và phân tích cú pháp đơn giản của các **HL7v2 messages** được định dạng theo **Quy tắc mã hóa 7 (ER7)** thông qua giao diện REST.
-
-**Kiến trúc giải pháp bây giờ như sau:**
-
-> *Hình 1. Kiến trúc tổng thể; những ô màu thể hiện những dịch vụ riêng biệt.*
+Bài viết này giải thích ưu điểm của hai tùy chọn edge runtime và cung cấp hướng dẫn giúp bạn chọn lựa phương án phù hợp với trường hợp sử dụng.
 
 ---
 
-Mặc dù thuật ngữ *microservices* có một số sự mơ hồ cố hữu, một số đặc điểm là chung:  
-- Chúng nhỏ, tự chủ, kết hợp rời rạc  
-- Có thể tái sử dụng, giao tiếp thông qua giao diện được xác định rõ  
-- Chuyên biệt để giải quyết một việc  
-- Thường được triển khai trong **event-driven architecture**
+### Sự khác biệt chính giữa Nucleus và Nucleus Lite
 
-Khi xác định vị trí tạo ranh giới giữa các microservices, cần cân nhắc:  
-- **Nội tại**: công nghệ được sử dụng, hiệu suất, độ tin cậy, khả năng mở rộng  
-- **Bên ngoài**: chức năng phụ thuộc, tần suất thay đổi, khả năng tái sử dụng  
-- **Con người**: quyền sở hữu nhóm, quản lý *cognitive load*
+AWS IoT Greengrass Nucleus Lite hoàn toàn tương thích với AWS IoT Greengrass [V2 Cloud Service API](https://docs.aws.amazon.com/greengrass/v2/APIReference/API_Operations.html) và [IPC](https://docs.aws.amazon.com/greengrass/v2/developerguide/interprocess-communication.html) interface. Điều này có nghĩa là bạn có thể xây dựng và triển khai các component hướng đến một hoặc cả hai runtime. Tuy nhiên, Nucleus Lite có một số điểm khác biệt quan trọng:
 
----
+#### 1. Memory footprint (Dung lượng bộ nhớ)
 
-## Lựa chọn công nghệ và phạm vi giao tiếp
+* **Nucleus (Java):** Yêu cầu tối thiểu 256 MB đĩa và 96 MB RAM. AWS khuyến nghị tối thiểu **512 MB RAM** để đáp ứng hệ điều hành, JVM và ứng dụng.
+* **Nucleus Lite (C):** Yêu cầu ít hơn **5 MB RAM và 5 MB lưu trữ**, không phụ thuộc vào JVM và chỉ yêu cầu thư viện chuẩn C.
 
-| Phạm vi giao tiếp                        | Các công nghệ / mô hình cần xem xét                                                        |
-| ---------------------------------------- | ------------------------------------------------------------------------------------------ |
-| Trong một microservice                   | Amazon Simple Queue Service (Amazon SQS), AWS Step Functions                               |
-| Giữa các microservices trong một dịch vụ | AWS CloudFormation cross-stack references, Amazon Simple Notification Service (Amazon SNS) |
-| Giữa các dịch vụ                         | Amazon EventBridge, AWS Cloud Map, Amazon API Gateway                                      |
+![pic 1](/images/3-Blog/B2-1.png)
+> *Hình 1: Dung lượng bộ nhớ của Nucleus so với Nucleus Lite.*
 
----
+Dung lượng nhỏ hơn này mở ra khả năng mới cho việc phát triển ứng dụng IoT trên các thiết bị bị giới hạn tài nguyên.
 
-## The pub/sub hub
+#### 2. Static memory allocation (Cấp phát bộ nhớ tĩnh)
 
-Việc sử dụng kiến trúc **hub-and-spoke** (hay message broker) hoạt động tốt với một số lượng nhỏ các microservices liên quan chặt chẽ.  
-- Mỗi microservice chỉ phụ thuộc vào *hub*  
-- Kết nối giữa các microservice chỉ giới hạn ở nội dung của message được xuất  
-- Giảm số lượng synchronous calls vì pub/sub là *push* không đồng bộ một chiều
+Nucleus Lite cấp phát một lượng bộ nhớ cố định khi khởi động và giữ nguyên không đổi.
+* **Lợi ích:** Yêu cầu tài nguyên có thể dự đoán được, giảm thiểu rủi ro rò rỉ bộ nhớ.
+* **Hiệu năng:** Loại bỏ độ trễ không xác định (non-deterministic latency) thường gặp ở các ngôn ngữ có cơ chế thu gom rác (garbage-collected) như Java.
 
-Nhược điểm: cần **phối hợp và giám sát** để tránh microservice xử lý nhầm message.
+#### 3. Directory structure (Cấu trúc thư mục)
 
----
+Nucleus Lite tách biệt rõ ràng các thành phần trên đĩa, hỗ trợ tối ưu cho **Embedded Linux**:
 
-## Core microservice
+* **Runtime:** Có thể lưu trên phân vùng **Read-Only** (hỗ trợ cơ chế cập nhật A/B OS).
+* **Components & Config:** Nằm ở phân vùng **Read-Write** hoặc overlay để quản lý qua deployment.
+* **Logs:** Lưu trong phân vùng tạm thời hoặc ổ đĩa khác để tránh hao mòn bộ nhớ flash.
 
-Cung cấp dữ liệu nền tảng và lớp truyền thông, gồm:  
-- **Amazon S3** bucket cho dữ liệu  
-- **Amazon DynamoDB** cho danh mục dữ liệu  
-- **AWS Lambda** để ghi message vào data lake và danh mục  
-- **Amazon SNS** topic làm *hub*  
-- **Amazon S3** bucket cho artifacts như mã Lambda
+Cách tách biệt này giúp bạn tạo [golden image cho sản xuất thiết bị hàng loạt](https://docs.aws.amazon.com/prescriptive-guidance/latest/iot-greengrass-golden-images/introduction.html).
 
-> Chỉ cho phép truy cập ghi gián tiếp vào data lake qua hàm Lambda → đảm bảo nhất quán.
+#### 4. Tích hợp với Systemd
+
+[Systemd](https://systemd.io/) là yêu cầu bắt buộc đối với Nucleus Lite.
+* Nucleus Lite được cài đặt như một bộ các dịch vụ systemd.
+* Mỗi component được triển khai cũng chạy như một dịch vụ systemd riêng biệt.
+* Việc ghi log được xử lý tập trung bởi systemd, cho phép dùng các công cụ Linux quen thuộc để debug.
 
 ---
 
-## Front door microservice
+### Lựa chọn giữa Nucleus và Nucleus Lite
 
-- Cung cấp API Gateway để tương tác REST bên ngoài  
-- Xác thực & ủy quyền dựa trên **OIDC** thông qua **Amazon Cognito**  
-- Cơ chế *deduplication* tự quản lý bằng DynamoDB thay vì SNS FIFO vì:
-  1. SNS deduplication TTL chỉ 5 phút
-  2. SNS FIFO yêu cầu SQS FIFO
-  3. Chủ động báo cho sender biết message là bản sao
+Việc lựa chọn phụ thuộc vào trường hợp sử dụng, phần cứng và hệ điều hành. Bảng dưới đây tóm tắt các gợi ý:
 
----
+| Khi nên dùng Nucleus (Java) | Khi nên dùng Nucleus Lite (C) |
+| :--- | :--- |
+| Bạn muốn dùng Windows hoặc bản Linux không có systemd | Thiết bị của bạn bị giới hạn bộ nhớ (**≤ 512 MB RAM**) |
+| Ứng dụng của bạn chạy trong Docker containers | CPU thiết bị có tốc độ xung nhịp **< 1 GHz** |
+| Thành phần ứng dụng là Lambda functions | Bạn tạo bản Embedded Linux cần kiểm soát chính xác phân vùng (OS updates, A/B partitions) |
+| Bạn phát triển bằng ngôn ngữ script hoặc interpreted | Bạn lập trình bằng ngôn ngữ biên dịch sang mã máy |
+| Bạn cần tính năng [chưa được hỗ trợ bởi Nucleus Lite](https://docs.aws.amazon.com/greengrass/v2/developerguide/operating-system-feature-support-matrix.html) | Bạn có yêu cầu tuân thủ không cho phép dùng Java |
+| Bạn tạo [AWS IoT SiteWise gateway](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/gw-self-host-gg2.html) | Bạn ưu tiên cấp phát bộ nhớ tĩnh (static memory allocation) |
 
-## Staging ER7 microservice
-
-- Lambda “trigger” đăng ký với pub/sub hub, lọc message theo attribute  
-- Step Functions Express Workflow để chuyển ER7 → JSON  
-- Hai Lambda:
-  1. Sửa format ER7 (newline, carriage return)
-  2. Parsing logic  
-- Kết quả hoặc lỗi được đẩy lại vào pub/sub hub
+> *Bảng 1: Hướng dẫn chọn giữa Nucleus và Nucleus Lite.*
 
 ---
 
-## Tính năng mới trong giải pháp
+### Use case và kịch bản triển khai
 
-### 1. AWS CloudFormation cross-stack references
-Ví dụ *outputs* trong core microservice:
-```yaml
-Outputs:
-  Bucket:
-    Value: !Ref Bucket
-    Export:
-      Name: !Sub ${AWS::StackName}-Bucket
-  ArtifactBucket:
-    Value: !Ref ArtifactBucket
-    Export:
-      Name: !Sub ${AWS::StackName}-ArtifactBucket
-  Topic:
-    Value: !Ref Topic
-    Export:
-      Name: !Sub ${AWS::StackName}-Topic
-  Catalog:
-    Value: !Ref Catalog
-    Export:
-      Name: !Sub ${AWS::StackName}-Catalog
-  CatalogArn:
-    Value: !GetAtt Catalog.Arn
-    Export:
-      Name: !Sub ${AWS::StackName}-CatalogArn
+#### 1. Các trường hợp sử dụng (Use cases)
+Với yêu cầu tài nguyên thấp, Nucleus Lite phù hợp cho các thiết bị chi phí thấp, bộ nhớ và CPU hạn chế trong các lĩnh vực như nhà thông minh, công nghiệp, ô tô, và đo lường thông minh.
+
+#### 2. Embedded systems (Hệ thống nhúng)
+Nucleus Lite hỗ trợ Embedded Linux ngay từ đầu thông qua dự án [meta-aws](https://github.com/aws4embeddedlinux/meta-aws). Dự án này cung cấp các "recipes" để tích hợp vào Yocto/OpenEmbedded, và kho [meta-aws-demos](https://github.com/aws4embeddedlinux/meta-aws-demos) chứa các ví dụ như cập nhật A/B với RAUC.
+
+#### 3. Multi-tenancy với containerized Nucleus Lite
+Với dung lượng nhỏ gọn, Nucleus Lite mang lại khả năng container hóa hiệu quả cho mô hình đa người dùng (multi-tenant).
+
+![pic 1](/images/3-Blog/B2-2.png)
+
+> *Hình 2: Container hóa đa người dùng (Multi-tenant containerization).*
+
+* **Cô lập an toàn:** Mỗi instance container duy trì ranh giới chặt chẽ.
+* **Tối ưu tài nguyên:** Dung lượng nhỏ cho phép nhiều container hoạt động trên thiết bị giới hạn.
+* **Hoạt động độc lập:** Các ứng dụng được quản lý và cập nhật riêng biệt.
+
+---
+
+### Best practices
+
+**1. Plugin compatibility:**
+Các Nucleus plugin (viết bằng Java cho runtime gốc) **không thể** sử dụng với runtime Nucleus Lite.
+
+**2. Lựa chọn ngôn ngữ Component:**
+* Chọn Python/Java sẽ làm giảm lợi thế tiết kiệm bộ nhớ của Nucleus Lite (do cần interpreter hoặc JVM).
+* **Khuyến nghị:** Viết lại các thành phần quan trọng bằng **C, C++, hoặc Rust** để đạt hiệu suất tối đa.
+
+**3. Chuyển đổi và Phát triển:**
+* Khi chuyển đổi: Có thể chạy component hiện có "as-is" để đảm bảo chức năng trước khi tối ưu.
+* Khi phân bổ ngân sách bộ nhớ (memory budget): Cần tính toán toàn bộ các phụ thuộc runtime và footprint hệ thống, không chỉ riêng Nucleus Lite.
+
+---
+
+### Tương lai và kết luận
+
+AWS IoT Greengrass Nucleus Lite giúp tái tưởng tượng cách triển khai điện toán biên bằng cách giảm đáng kể yêu cầu tài nguyên. Điều này cho phép:
+* Triển khai IoT trên phần cứng rẻ hơn, đa dạng hơn.
+* Giảm chi phí vận hành.
+* Kích hoạt các use case mới trước đây không khả thi.
+
+Sẵn sàng bắt đầu?
+* **Khám phá:** [Tài liệu AWS IoT Greengrass](https://docs.aws.amazon.com/greengrass/v2/developerguide/what-is-iot-greengrass.html).
+* **Thực hành:** [Hướng dẫn cài đặt](https://github.com/aws-greengrass/aws-greengrass-lite/blob/main/docs/SETUP.md#setting-up-greengrass-nucleus-lite).
+* **Cộng đồng:** Tham gia diễn đàn [AWS IoT Community](https://repost.aws/topics/TAEQXJMLWWTp2elx_Bkb1Kvw/internet-of-things-iot).
+* **Đóng góp:** Gửi mã nguồn lên [Github repo](https://github.com/aws-greengrass/aws-greengrass-lite).
+
+---
+
+#### Về tác giả
+
+> **Camilla Panni**
+>
+> Kiến trúc sư Giải pháp (Solutions Architect) tại AWS. Cô hỗ trợ khách hàng khu vực công tại Ý tăng tốc chuyển đổi đám mây. Camilla có nền tảng kỹ thuật về tự động hóa và IoT.
+
+> **Greg Breen**
+>
+> Kiến trúc sư Giải pháp Chuyên gia IoT Cấp cao tại AWS, làm việc tại Úc. Với kinh nghiệm chuyên sâu về hệ thống nhúng, Greg hỗ trợ các nhóm phát triển sản phẩm tại khu vực Châu Á - Thái Bình Dương đưa thiết bị ra thị trường.

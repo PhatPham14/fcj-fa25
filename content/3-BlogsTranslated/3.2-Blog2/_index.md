@@ -1,124 +1,141 @@
 ---
-title: "Blog 2"
-date: 2025-09-08
+title: "AWS IoT Greengrass Nucleus Lite - Revolutionizing Edge Computing on Resource-Constrained Devices"
+date: 2025-04-15
 weight: 1
 chapter: false
 pre: " <b> 3.2. </b> "
+tags:
+  - AWS IoT
+  - AWS IoT Greengrass V2
+  - Edge Computing
+  - IoT Edge
 ---
 
+**By Camilla Panni and Greg Breen**
 
-# Getting Started with Healthcare Data Lakes: Using Microservices
+[AWS IoT Greengrass](https://docs.aws.amazon.com/greengrass/v2/developerguide/what-is-iot-greengrass.html) is an open-source edge runtime and cloud service that helps you build, deploy, and manage multi-process applications at scale across fleets of IoT devices.
 
-Data lakes can help hospitals and healthcare facilities turn data into business insights, maintain business continuity, and protect patient privacy. A **data lake** is a centralized, managed, and secure repository to store all your data, both in its raw and processed forms for analysis. Data lakes allow you to break down data silos and combine different types of analytics to gain insights and make better business decisions.
+AWS IoT Greengrass V2 was launched in December 2020 with a Java-based edge runtime called [nucleus](https://docs.aws.amazon.com/greengrass/v2/developerguide/greengrass-nucleus-component.html). With [release 2.14.0](https://docs.aws.amazon.com/greengrass/v2/developerguide/greengrass-release-2024-12-16.html) in December 2024, AWS introduced an additional edge runtime option: **Nucleus Lite** - written in C.
 
-This blog post is part of a larger series on getting started with setting up a healthcare data lake. In my final post of the series, *“Getting Started with Healthcare Data Lakes: Diving into Amazon Cognito”*, I focused on the specifics of using Amazon Cognito and Attribute Based Access Control (ABAC) to authenticate and authorize users in the healthcare data lake solution. In this blog, I detail how the solution evolved at a foundational level, including the design decisions I made and the additional features used. You can access the code samples for the solution in this Git repo for reference.
+**AWS IoT Greengrass Nucleus Lite** is a lightweight, [open-source](https://github.com/aws-greengrass/aws-greengrass-lite) edge runtime designed for resource-constrained devices. It extends AWS IoT Greengrass capabilities to lower-cost devices and single-board computers serving applications such as smart home hubs, smart energy meters, smart vehicles, edge AI, and robotics.
 
----
-
-## Architecture Guidance
-
-The main change since the last presentation of the overall architecture is the decomposition of a single service into a set of smaller services to improve maintainability and flexibility. Integrating a large volume of diverse healthcare data often requires specialized connectors for each format; by keeping them encapsulated separately as microservices, we can add, remove, and modify each connector without affecting the others. The microservices are loosely coupled via publish/subscribe messaging centered in what I call the “pub/sub hub.”
-
-This solution represents what I would consider another reasonable sprint iteration from my last post. The scope is still limited to the ingestion and basic parsing of **HL7v2 messages** formatted in **Encoding Rules 7 (ER7)** through a REST interface.
-
-**The solution architecture is now as follows:**
-
-> *Figure 1. Overall architecture; colored boxes represent distinct services.*
+This article explains the advantages of both edge runtime options and provides guidance to help you choose the right approach for your use case.
 
 ---
 
-While the term *microservices* has some inherent ambiguity, certain traits are common:  
-- Small, autonomous, loosely coupled  
-- Reusable, communicating through well-defined interfaces  
-- Specialized to do one thing well  
-- Often implemented in an **event-driven architecture**
+### Key differences between Nucleus and Nucleus Lite
 
-When determining where to draw boundaries between microservices, consider:  
-- **Intrinsic**: technology used, performance, reliability, scalability  
-- **Extrinsic**: dependent functionality, rate of change, reusability  
-- **Human**: team ownership, managing *cognitive load*
+AWS IoT Greengrass Nucleus Lite is fully compatible with the AWS IoT Greengrass [V2 Cloud Service API](https://docs.aws.amazon.com/greengrass/v2/APIReference/API_Operations.html) and [IPC](https://docs.aws.amazon.com/greengrass/v2/developerguide/interprocess-communication.html) interface. This means you can build and deploy components targeting one or both runtimes. However, Nucleus Lite has distinct technical characteristics:
 
----
+#### 1. Memory footprint
 
-## Technology Choices and Communication Scope
+* **Nucleus (Java):** Requires a minimum of 256 MB disk and 96 MB RAM. AWS recommends a minimum of **512 MB RAM** to support the OS, JVM, and your applications.
+* **Nucleus Lite (C):** Requires less than **5 MB RAM and 5 MB storage**, does not depend on a JVM, and only requires the C Standard Library.
 
-| Communication scope                       | Technologies / patterns to consider                                                        |
-| ----------------------------------------- | ------------------------------------------------------------------------------------------ |
-| Within a single microservice              | Amazon Simple Queue Service (Amazon SQS), AWS Step Functions                               |
-| Between microservices in a single service | AWS CloudFormation cross-stack references, Amazon Simple Notification Service (Amazon SNS) |
-| Between services                          | Amazon EventBridge, AWS Cloud Map, Amazon API Gateway                                      |
+![pic 1](/images/3-Blog/B2-1.png)
+> *Figure 1: Comparison of Nucleus vs. Nucleus Lite memory footprint.*
 
----
+This smaller footprint opens up new possibilities for IoT application development on resource-constrained devices.
 
-## The Pub/Sub Hub
+#### 2. Static memory allocation
 
-Using a **hub-and-spoke** architecture (or message broker) works well with a small number of tightly related microservices.  
-- Each microservice depends only on the *hub*  
-- Inter-microservice connections are limited to the contents of the published message  
-- Reduces the number of synchronous calls since pub/sub is a one-way asynchronous *push*
+Nucleus Lite allocates a fixed amount of memory at startup and keeps it unchanged.
+* **Benefit:** Deterministic resource requirements, minimizing the risk of memory leaks.
+* **Performance:** Eliminates non-deterministic latency often found in garbage-collected languages like Java.
 
-Drawback: **coordination and monitoring** are needed to avoid microservices processing the wrong message.
+#### 3. Directory structure
 
----
+Nucleus Lite clearly separates components on disk, offering optimized support for **Embedded Linux**:
 
-## Core Microservice
+* **Runtime:** Can be stored on a **Read-Only** partition (supporting A/B OS update mechanisms).
+* **Components & Config:** Located on a **Read-Write** partition or overlay for management via deployments.
+* **Logs:** Stored in a temporary partition or separate volume to prevent flash memory wear.
 
-Provides foundational data and communication layer, including:  
-- **Amazon S3** bucket for data  
-- **Amazon DynamoDB** for data catalog  
-- **AWS Lambda** to write messages into the data lake and catalog  
-- **Amazon SNS** topic as the *hub*  
-- **Amazon S3** bucket for artifacts such as Lambda code
+This separation helps you create [golden images for mass device manufacturing](https://docs.aws.amazon.com/prescriptive-guidance/latest/iot-greengrass-golden-images/introduction.html).
 
-> Only allow indirect write access to the data lake through a Lambda function → ensures consistency.
+#### 4. Systemd Integration
+
+[Systemd](https://systemd.io/) is a mandatory requirement for Nucleus Lite.
+* Nucleus Lite is installed as a set of systemd services.
+* Each deployed component also runs as a separate systemd service.
+* Logging is handled centrally by systemd, allowing the use of standard Linux tools for debugging.
 
 ---
 
-## Front Door Microservice
+### Choosing between Nucleus and Nucleus Lite
 
-- Provides an API Gateway for external REST interaction  
-- Authentication & authorization based on **OIDC** via **Amazon Cognito**  
-- Self-managed *deduplication* mechanism using DynamoDB instead of SNS FIFO because:  
-  1. SNS deduplication TTL is only 5 minutes  
-  2. SNS FIFO requires SQS FIFO  
-  3. Ability to proactively notify the sender that the message is a duplicate  
+The choice depends on your specific use case, hardware constraints, and operating system. The table below summarizes the recommendations:
 
----
+| When to use Nucleus (Java) | When to use Nucleus Lite (C) |
+| :--- | :--- |
+| You want to use Windows or a Linux distro without systemd | Your device is memory constrained (**≤ 512 MB RAM**) |
+| Your application runs in Docker containers | Device CPU clock speed is **< 1 GHz** |
+| Application components are Lambda functions | You use Embedded Linux and need strict partition control (OS updates, A/B partitions) |
+| You develop using interpreted or scripting languages | You program using compiled languages |
+| You need features [not yet supported by Nucleus Lite](https://docs.aws.amazon.com/greengrass/v2/developerguide/operating-system-feature-support-matrix.html) | You have compliance requirements that disallow Java usage |
+| You are creating an [AWS IoT SiteWise gateway](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/gw-self-host-gg2.html) | You prioritize static memory allocation |
 
-## Staging ER7 Microservice
-
-- Lambda “trigger” subscribed to the pub/sub hub, filtering messages by attribute  
-- Step Functions Express Workflow to convert ER7 → JSON  
-- Two Lambdas:  
-  1. Fix ER7 formatting (newline, carriage return)  
-  2. Parsing logic  
-- Result or error is pushed back into the pub/sub hub  
+> *Table 1: Guidance for choosing between Nucleus and Nucleus Lite.*
 
 ---
 
-## New Features in the Solution
+### Use Cases and Deployment Scenarios
 
-### 1. AWS CloudFormation Cross-Stack References
-Example *outputs* in the core microservice:
-```yaml
-Outputs:
-  Bucket:
-    Value: !Ref Bucket
-    Export:
-      Name: !Sub ${AWS::StackName}-Bucket
-  ArtifactBucket:
-    Value: !Ref ArtifactBucket
-    Export:
-      Name: !Sub ${AWS::StackName}-ArtifactBucket
-  Topic:
-    Value: !Ref Topic
-    Export:
-      Name: !Sub ${AWS::StackName}-Topic
-  Catalog:
-    Value: !Ref Catalog
-    Export:
-      Name: !Sub ${AWS::StackName}-Catalog
-  CatalogArn:
-    Value: !GetAtt Catalog.Arn
-    Export:
-      Name: !Sub ${AWS::StackName}-CatalogArn
+#### 1. Use Cases
+With low resource requirements, Nucleus Lite is suitable for low-cost devices with limited memory and CPU in sectors such as smart homes, industrial, automotive, and smart metering.
+
+#### 2. Embedded Systems
+Nucleus Lite supports Embedded Linux out-of-the-box via the [meta-aws](https://github.com/aws4embeddedlinux/meta-aws) project. This project provides "recipes" for integration into Yocto/OpenEmbedded, and the [meta-aws-demos](https://github.com/aws4embeddedlinux/meta-aws-demos) repository contains examples such as A/B updates using RAUC.
+
+#### 3. Multi-tenancy with containerized Nucleus Lite
+With its small footprint, Nucleus Lite enables efficient containerization for multi-tenant models.
+
+![pic 1](/images/3-Blog/B2-2.png)
+
+> *Figure 2: Multi-tenant containerization.*
+
+* **Secure Isolation:** Each container instance maintains strict boundaries.
+* **Resource Optimization:** Small footprint allows multiple containers to operate on limited devices.
+* **Independent Operation:** Applications are managed and updated separately.
+
+---
+
+### Best Practices
+
+**1. Plugin compatibility:**
+Nucleus plugins (written in Java for the original runtime) **cannot** be used with the Nucleus Lite runtime.
+
+**2. Component Language Selection:**
+* Choosing Python/Java will reduce the memory-saving advantages of Nucleus Lite (due to the need for an interpreter or JVM).
+* **Recommendation:** Rewrite critical components in **C, C++, or Rust** to achieve maximum performance.
+
+**3. Migration and Development:**
+* When migrating: You can run existing components "as-is" to ensure functionality before optimizing.
+* When calculating memory budgets: Account for all runtime dependencies and system footprint, not just Nucleus Lite itself.
+
+---
+
+### Future and Conclusion
+
+AWS IoT Greengrass Nucleus Lite helps reimagine edge computing deployments by significantly reducing resource requirements. This allows you to:
+* Deploy IoT on cheaper, more diverse hardware.
+* Reduce operational costs.
+* Enable new use cases that were previously unfeasible.
+
+Ready to get started?
+* **Explore:** [AWS IoT Greengrass Documentation](https://docs.aws.amazon.com/greengrass/v2/developerguide/what-is-iot-greengrass.html).
+* **Get hands-on:** [Installation Guide](https://github.com/aws-greengrass/aws-greengrass-lite/blob/main/docs/SETUP.md#setting-up-greengrass-nucleus-lite).
+* **Community:** Join the [AWS IoT Community Forum](https://repost.aws/topics/TAEQXJMLWWTp2elx_Bkb1Kvw/internet-of-things-iot).
+* **Contribute:** Submit code to the [Github repository](https://github.com/aws-greengrass/aws-greengrass-lite).
+
+---
+
+#### About the Authors
+
+> **Camilla Panni**
+>
+> Solutions Architect at AWS. She supports Public Sector customers in Italy to accelerate cloud adoption. Camilla has a technical background in automation and IoT.
+
+> **Greg Breen**
+>
+> Senior IoT Specialist Solutions Architect at AWS, based in Australia. With deep experience in embedded systems, Greg supports product development teams across the Asia-Pacific region in bringing devices to market.

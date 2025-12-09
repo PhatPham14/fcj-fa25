@@ -1,124 +1,106 @@
 ---
-title: "Blog 3"
-date: 2025-09-08
+title: "Proactive Strategies for Cyber Resilience and Business Continuity on AWS"
+date: 2025-07-11
 weight: 1
 chapter: false
 pre: " <b> 3.3. </b> "
+tags:
+  - AWS Public Sector
+  - Best Practices
+  - Disaster Response
+  - Security
 ---
 
+**By Devin Gordon and Henrik Balle**
 
-# Getting Started with Healthcare Data Lakes: Using Microservices
+![pic 1](/images/3-Blog/B3-1.png)
 
-Data lakes can help hospitals and healthcare facilities turn data into business insights, maintain business continuity, and protect patient privacy. A **data lake** is a centralized, managed, and secure repository to store all your data, both in its raw and processed forms for analysis. Data lakes allow you to break down data silos and combine different types of analytics to gain insights and make better business decisions.
+[Amazon Web Services (AWS)](https://aws.amazon.com/) recommends that organizations prepare to recover workloads in the event of cybersecurity incidents or business continuity events such as natural disasters or technical failures. In this post, we provide guidance and strategies for Public Sector organizations to use AWS infrastructure to operate resilient systems in the cloud.
 
-This blog post is part of a larger series on getting started with setting up a healthcare data lake. In my final post of the series, *“Getting Started with Healthcare Data Lakes: Diving into Amazon Cognito”*, I focused on the specifics of using Amazon Cognito and Attribute Based Access Control (ABAC) to authenticate and authorize users in the healthcare data lake solution. In this blog, I detail how the solution evolved at a foundational level, including the design decisions I made and the additional features used. You can access the code samples for the solution in this Git repo for reference.
-
----
-
-## Architecture Guidance
-
-The main change since the last presentation of the overall architecture is the decomposition of a single service into a set of smaller services to improve maintainability and flexibility. Integrating a large volume of diverse healthcare data often requires specialized connectors for each format; by keeping them encapsulated separately as microservices, we can add, remove, and modify each connector without affecting the others. The microservices are loosely coupled via publish/subscribe messaging centered in what I call the “pub/sub hub.”
-
-This solution represents what I would consider another reasonable sprint iteration from my last post. The scope is still limited to the ingestion and basic parsing of **HL7v2 messages** formatted in **Encoding Rules 7 (ER7)** through a REST interface.
-
-**The solution architecture is now as follows:**
-
-> *Figure 1. Overall architecture; colored boxes represent distinct services.*
-
----
-
-While the term *microservices* has some inherent ambiguity, certain traits are common:  
-- Small, autonomous, loosely coupled  
-- Reusable, communicating through well-defined interfaces  
-- Specialized to do one thing well  
-- Often implemented in an **event-driven architecture**
-
-When determining where to draw boundaries between microservices, consider:  
-- **Intrinsic**: technology used, performance, reliability, scalability  
-- **Extrinsic**: dependent functionality, rate of change, reusability  
-- **Human**: team ownership, managing *cognitive load*
+AWS recommends that its customers:
+* Use cybersecurity frameworks and AWS architectural best practices.
+* Implement a multi-account environment.
+* Use [infrastructure as code (IaC)](https://aws.amazon.com/what-is/iac/) to deploy AWS environments and workloads.
+* Prepare a recovery account in an Availability Zone or [Region](https://docs.aws.amazon.com/glossary/latest/reference/glos-chap.html#region) different from the primary workload.
+* Include all application code, IaC code, configuration files, and other dependencies in the recovery account.
+* Define a data backup strategy to the recovery account.
+* Implement automated testing (unit and full workload) in the recovery account.
 
 ---
 
-## Technology Choices and Communication Scope
+### Use an established framework
 
-| Communication scope                       | Technologies / patterns to consider                                                        |
-| ----------------------------------------- | ------------------------------------------------------------------------------------------ |
-| Within a single microservice              | Amazon Simple Queue Service (Amazon SQS), AWS Step Functions                               |
-| Between microservices in a single service | AWS CloudFormation cross-stack references, Amazon Simple Notification Service (Amazon SNS) |
-| Between services                          | Amazon EventBridge, AWS Cloud Map, Amazon API Gateway                                      |
+As cybersecurity incidents like ransomware increase, Public Sector organizations look to frameworks such as the [NIST Cybersecurity Framework (CSF) 2.0](https://www.nist.gov/cyberframework) from the [National Institute of Standards and Technology (NIST)](https://www.nist.gov/) to guide better cybersecurity risk governance. While the CSF organizes cybersecurity outcomes by functions (govern, identify, protect, detect, respond, recover), NIST does not prescribe specific ways to achieve those outcomes.
 
----
+For more specific guidance, refer to resources such as:
+* **[AWS Blueprint for Ransomware Defense](https://d1.awsstatic.com/whitepapers/compliance/AWS-Blueprint-for-Ransomware-Defense.pdf):** Provides a mapping of AWS services to CSF functions.
+* **[AWS Well-Architected Framework](https://aws.amazon.com/architecture/well-architected/):** Dives into six pillars to help cloud architects build secure, high-performing, resilient, and efficient infrastructure, following the [AWS Shared Responsibility Model](https://aws.amazon.com/compliance/shared-responsibility-model/).
 
-## The Pub/Sub Hub
-
-Using a **hub-and-spoke** architecture (or message broker) works well with a small number of tightly related microservices.  
-- Each microservice depends only on the *hub*  
-- Inter-microservice connections are limited to the contents of the published message  
-- Reduces the number of synchronous calls since pub/sub is a one-way asynchronous *push*
-
-Drawback: **coordination and monitoring** are needed to avoid microservices processing the wrong message.
+These frameworks are complemented by the [AWS Security Reference Architecture (AWS SRA)](https://docs.aws.amazon.com/prescriptive-guidance/latest/security-reference-architecture/welcome.html), which helps you design, deploy, and manage AWS security services.
 
 ---
 
-## Core Microservice
+### Implement a multi-account strategy on AWS
 
-Provides foundational data and communication layer, including:  
-- **Amazon S3** bucket for data  
-- **Amazon DynamoDB** for data catalog  
-- **AWS Lambda** to write messages into the data lake and catalog  
-- **Amazon SNS** topic as the *hub*  
-- **Amazon S3** bucket for artifacts such as Lambda code
+AWS recommends following best practices when deploying cloud environments by using a multi-account strategy, also known as a [landing zone](https://docs.aws.amazon.com/prescriptive-guidance/latest/migration-aws-environment/understanding-landing-zones.html). Using [AWS Organizations](https://aws.amazon.com/organizations/) along with [AWS Control Tower](https://aws.amazon.com/controltower/) or [Landing Zone Accelerator on AWS](https://aws.amazon.com/solutions/implementations/landing-zone-accelerator-on-aws/) creates an environment suitable for management and automation. This helps isolate and manage applications and data, and eliminate unintended lateral movement.
 
-> Only allow indirect write access to the data lake through a Lambda function → ensures consistency.
+In a multi-account strategy, AWS recommends centrally managing identities using [AWS IAM Identity Center](https://aws.amazon.com/iam/identity-center/).
+> **Note:** In a recovery scenario, you may need to [use root credentials](https://docs.aws.amazon.com/managedservices/latest/userguide/how-when-to-use-root.html). Root credentials should be properly secured to prevent account takeover. AWS [recently announced](https://aws.amazon.com/blogs/aws/centrally-managing-root-access-for-customers-using-aws-organizations/g-aws-organizations/) new capabilities for centrally managing root credentials to strengthen security posture.
 
 ---
 
-## Front Door Microservice
+### Build your AWS infrastructure with automation
 
-- Provides an API Gateway for external REST interaction  
-- Authentication & authorization based on **OIDC** via **Amazon Cognito**  
-- Self-managed *deduplication* mechanism using DynamoDB instead of SNS FIFO because:  
-  1. SNS deduplication TTL is only 5 minutes  
-  2. SNS FIFO requires SQS FIFO  
-  3. Ability to proactively notify the sender that the message is a duplicate  
+As a key principle of DevSecOps, AWS recommends deploying all AWS infrastructure using **Infrastructure as Code (IaC)**. IaC helps iterate infrastructure quickly, improve consistency, reduce configuration errors, and crucially serves as documentation for infrastructure to accelerate recovery.
 
----
+Supporting tools and services:
+* **[AWS CloudFormation](https://aws.amazon.com/cloudformation/):** Define infrastructure using templates. You can also [create a stack from existing infrastructure](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/resource-import-new-stack.html).
+* **[AWS Cloud Development Kit (AWS CDK)](https://aws.amazon.com/cdk/):** Define resources using programming languages.
+* **[AWS Serverless Application Model (AWS SAM)](https://aws.amazon.com/serverless/sam/):** An open-source framework for serverless applications.
+* **[HashiCorp Terraform](https://developer.hashicorp.com/terraform):** A multi-platform IaC tool.
 
-## Staging ER7 Microservice
-
-- Lambda “trigger” subscribed to the pub/sub hub, filtering messages by attribute  
-- Step Functions Express Workflow to convert ER7 → JSON  
-- Two Lambdas:  
-  1. Fix ER7 formatting (newline, carriage return)  
-  2. Parsing logic  
-- Result or error is pushed back into the pub/sub hub  
+IaC code should be stored in a source code repository (e.g., GitLab). You can use the [DevOps Pipeline Accelerator (DPA)](https://github.com/aws-samples/aws-devops-pipeline-accelerator) to build a standardized CI/CD pipeline.
 
 ---
 
-## New Features in the Solution
+### Prepare a recovery location
 
-### 1. AWS CloudFormation Cross-Stack References
-Example *outputs* in the core microservice:
-```yaml
-Outputs:
-  Bucket:
-    Value: !Ref Bucket
-    Export:
-      Name: !Sub ${AWS::StackName}-Bucket
-  ArtifactBucket:
-    Value: !Ref ArtifactBucket
-    Export:
-      Name: !Sub ${AWS::StackName}-ArtifactBucket
-  Topic:
-    Value: !Ref Topic
-    Export:
-      Name: !Sub ${AWS::StackName}-Topic
-  Catalog:
-    Value: !Ref Catalog
-    Export:
-      Name: !Sub ${AWS::StackName}-Catalog
-  CatalogArn:
-    Value: !GetAtt Catalog.Arn
-    Export:
-      Name: !Sub ${AWS::StackName}-CatalogArn
+AWS recommends establishing separate accounts dedicated to recovery to deal with cybersecurity incidents.
+
+To deal with technical failures or natural disasters (e.g., [AWS Availability Zone](https://docs.aws.amazon.com/global-infrastructure/latest/regions/aws-availability-zones.html) outage):
+* If using the same Region, ensure the AZ used for recovery is discrete from the primary workload.
+* Use **Availability Zone IDs (AZ IDs)** to ensure consistency across accounts (since AWS randomizes AZ names between accounts).
+
+![pic 1](/images/3-Blog/B3-2.png)
+> *Figure 1. Example of workload and recovery account using Availability Zone ID.*
+
+For higher fault tolerance, consider **multi-Region recovery**. For example: Primary Region in *US East (N. Virginia)* and backup in *US East (Ohio)*. Evaluate your encryption key strategy with [AWS Key Management Service (AWS KMS)](https://aws.amazon.com/kms/) to decrypt cross-region backup data.
+
+---
+
+### Define a backup strategy and implement automated testing
+
+AWS recommends aligning your backup strategy with cloud-based solutions:
+* Use **[AWS Backup](https://aws.amazon.com/backup/)** to back up workload data, IaC, infrastructure configuration, application code, and [AMIs](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AMIs.html) to the recovery account.
+* Consider an **Immutable backup** strategy with [AWS Backup Vault Lock](https://aws.amazon.com/blogs/storage/protecting-data-with-aws-backup-vault-lock/) to protect against ransomware.
+
+**Automated Testing:**
+After setting up the recovery account, implement automated testing to validate the viability of backup data. You should periodically build the full workload in the recovery account using IaC code and backups to ensure the Business Continuity process runs smoothly.
+
+---
+
+### Conclusion
+
+By following the best practices in this post, Public Sector organizations can use AWS capabilities to prepare for recovery from a business continuity event. Please contact your AWS account team and solutions architect for further guidance.
+
+---
+
+#### About the Authors
+
+> **Devin Gordon**
+>
+> Principal Solutions Architect at Amazon Web Services (AWS), supporting federal civilian agencies. He specializes in security on AWS and is passionate about helping customers deploy secure environments while leveraging emerging technologies. He enjoys SCUBA diving and rock climbing.
+
+> **Henrik Balle**
+>
+> Principal Solutions Architect at AWS, supporting the US public sector. He works closely with customers on a wide range of topics from machine learning to security and governance at scale. He enjoys road biking and home renovation projects.
