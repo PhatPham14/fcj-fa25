@@ -1,6 +1,6 @@
 ---
 title: "Worklog"
-date: 2025-09-08
+date: 2025-11-26
 weight: 1
 chapter: false
 pre: " <b> 1. </b> "
@@ -38,4 +38,4 @@ Below is the detailed content for each week:
 
 **Week 11:** [Project Documentation and Final Product Polishing](1.11-week11/)
 
-**Week 12:** [Final Presentation, Product Demo, and Course Wrap-up](1.12-week12/)
+**Week 12:** [Final Preparation, Rehearsal, and Readiness for Showcase](1.12-week12/)

@@ -1,6 +1,6 @@
 ---
 title: "Worklog"
-date: 2025-09-08
+date: 2025-11-26
 weight: 1
 chapter: false
 pre: " <b> 1. </b> "
@@ -38,4 +38,4 @@ Dưới đây là nội dung chi tiết từng tuần:
 
 **Week 11:** [Viết tài liệu kỹ thuật và hoàn thiện sản phẩm](1.11-week11/)
 
-**Week 12:** [Thuyết trình Demo sản phẩm và tổng kết hành trình](1.12-week12/)
+**Week 12:** [Chuẩn bị Thuyết trình, Tổng duyệt và Sẵn sàng cho Showcase](1.12-week12/)

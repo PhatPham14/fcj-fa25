@@ -8,17 +8,18 @@ pre: " <b> 1.12. </b> "
 
 ### Mục tiêu tuần 12:
 
-* Thuyết trình và Demo sản phẩm (Final Showcase).
-* Tổng kết hành trình First Cloud Journey.
+* Hoàn thiện Slide thuyết trình và kịch bản Demo.
+* Tổng duyệt (Rehearsal) và rà soát lỗi lần cuối.
+* Sẵn sàng tâm thế và kỹ thuật cho buổi Final Showcase.
 
 ### Các công việc cần triển khai trong tuần này:
 
 | Thứ | Công việc | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu |
 | :---: | :--- | :---: | :---: | :---: |
-| **Hai** | - **Thuyết trình:** Chuẩn bị Slide thuyết trình (Giới thiệu, Kiến trúc, Demo, Bài học kinh nghiệm - Key Takeaways). | 24/11/2025 | 24/11/2025 | |
-| **Ba** | - **Thuyết trình:** Tổng duyệt (Rehearsal) kịch bản demo để đảm bảo mọi thứ diễn ra suôn sẻ. | 25/11/2025 | 25/11/2025 | |
-| **Tư** | - **Sự kiện:** Tham gia Final Showcase. Thuyết trình và demo dự án trước các Mentor/Ban giám khảo. | 26/11/2025 | 26/11/2025 | |
-| **Năm** | - **Tổng kết:** Tổng hợp lại toàn bộ khóa học, cập nhật CV/Portfolio với dự án đã hoàn thành. | 27/11/2025 | 27/11/2025 | |
+| **Hai** | - **Tài liệu:** Hoàn tất Slide thuyết trình (Giới thiệu, Kiến trúc, Demo, Key Takeaways). <br> - **Kỹ thuật:** Kiểm tra lại toàn bộ môi trường Demo (đảm bảo server/app chạy ổn định). | 24/11/2025 | 24/11/2025 | |
+| **Ba** | - **Luyện tập:** Tổng duyệt (Rehearsal) thử kịch bản demo một mình hoặc với nhóm để canh chỉnh thời gian. <br> - **Fix lỗi:** Xử lý các lỗi nhỏ (nếu có) phát hiện trong lúc chạy thử. | 25/11/2025 | 25/11/2025 | |
+| **Tư** | - **Rà soát:** Kiểm tra lại đường truyền mạng, mic, camera (nếu online) hoặc trang thiết bị (nếu offline). <br> - **Backup:** Chuẩn bị phương án dự phòng (video demo quay sẵn) phòng trường hợp live demo gặp sự cố. | 26/11/2025 | 26/11/2025 | |
+| **Năm** | - **Portfolio:** Cập nhật thông tin dự án vào CV/Portfolio (dưới dạng "In Progress" hoặc "Ready to showcase"). <br> - **Nghỉ ngơi:** Giữ tinh thần thoải mái trước ngày báo cáo chính thức. | 27/11/2025 | 27/11/2025 | |
 
 ### Kết quả đạt được tuần 12:
 
@@ -27,6 +28,7 @@ pre: " <b> 1.12. </b> "
 [Image of project presentation slide deck]
 
 
-* Hoàn thành xuất sắc khóa học AWS First Cloud Journey.
-* Có được một dự án thực tế chạy trên AWS để bổ sung vào Portfolio cá nhân.
-* Nâng cao kỹ năng thuyết trình và làm việc nhóm.
+* **Sản phẩm:** Hệ thống dự án đã hoạt động ổn định, kịch bản Demo đã chạy mượt mà (Happy path).
+* **Tài liệu:** Đã hoàn thiện Slide thuyết trình và bộ tài liệu kỹ thuật cuối cùng.
+* **Tâm thế:** Đã nắm vững luồng bài thuyết trình, sẵn sàng trả lời các câu hỏi phản biện (Q&A) từ Mentor/Ban giám khảo.
+* **Trạng thái:** Sẵn sàng 100% cho buổi Final Showcase sắp tới.
