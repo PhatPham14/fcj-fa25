@@ -6,13 +6,13 @@ chapter: false
 pre: " <b> 1. </b> "
 ---
 
-**Trên trang này**, tôi xin giới thiệu tổng quan về nhật ký công việc (worklog) của mình.
+**Trên trang này**, em xin giới thiệu tổng quan về nhật ký công việc (worklog) của mình.
 
-**Quá trình thực hiện:** Tôi đã hoàn thành worklog này thông qua việc tham gia chương trình thực tập **First Cloud Journey**. Phương pháp làm việc bao gồm sự kết hợp giữa tự nghiên cứu lý thuyết trên AWS Skill Builder/Coursera và thực hành triển khai một dự án nhóm (Group Project) thực tế.
+**Quá trình thực hiện:** Em đã hoàn thành worklog này thông qua việc tham gia chương trình thực tập **First Cloud Journey**. Phương pháp làm việc bao gồm sự kết hợp giữa tự nghiên cứu lý thuyết trên AWS Skill Builder/Coursera và thực hành triển khai một dự án nhóm (Group Project) thực tế.
 
 **Thời gian:** Chương trình kéo dài **12 tuần** (khoảng 3 tháng).
 
-**Tổng quan công việc:** Trong 12 tuần này, tôi đi từ việc tiếp cận các khái niệm Cloud cơ bản, học kỹ năng mềm, cho đến việc thiết kế kiến trúc, lập trình, triển khai DevOps và bảo mật cho một ứng dụng hoàn chỉnh trên AWS.
+**Tổng quan công việc:** Trong 12 tuần này, em đi từ việc tiếp cận các khái niệm Cloud cơ bản, học kỹ năng mềm, cho đến việc thiết kế kiến trúc, lập trình, triển khai DevOps và bảo mật cho một ứng dụng hoàn chỉnh trên AWS.
 
 Dưới đây là nội dung chi tiết từng tuần:
 

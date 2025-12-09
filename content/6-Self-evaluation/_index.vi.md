@@ -12,7 +12,7 @@ Em đã trực tiếp tham gia **nghiên cứu chuyên sâu các dịch vụ AWS
 
 Về tác phong, em luôn giữ tinh thần chủ động cao trong công việc và hợp tác tốt với các bạn FCjers. Tuy nhiên, em cũng nhận thức rõ những điểm hạn chế của bản thân về mặt kỷ luật và giao tiếp để có kế hoạch khắc phục trong tương lai.
 
-Để phản ánh một cách khách quan quá trình thực tập, tôi xin tự đánh giá bản thân dựa trên các tiêu chí dưới đây:
+Để phản ánh một cách khách quan quá trình thực tập, em xin tự đánh giá bản thân dựa trên các tiêu chí dưới đây:
 
 | STT | Tiêu chí | Mô tả | Tốt | Khá | Trung bình |
 | :---: | :--- | :--- | :---: | :---: | :---: |

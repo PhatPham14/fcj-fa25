@@ -6,7 +6,7 @@ chapter: false
 pre: " <b> 3. </b> "
 ---
 
-Tại đây là phần liệt kê và tóm tắt nội dung các bài blog kỹ thuật chuyên sâu về AWS mà tôi đã thực hiện dịch thuật và nghiên cứu.
+Tại đây là phần liệt kê và tóm tắt nội dung các bài blog kỹ thuật chuyên sâu về AWS mà em đã thực hiện dịch thuật và nghiên cứu.
 
 ### [Blog 1 - Bắt đầu với Data Lake trong Y tế: Sử dụng Microservices](3.1-Blog1/)
 Blog này hướng dẫn cách xây dựng Data Lake trong lĩnh vực y tế bằng cách áp dụng kiến trúc Microservices. Bạn sẽ tìm hiểu cách xử lý các bản tin HL7v2 thông qua kiến trúc hướng sự kiện (Event-driven) với mô hình Pub/Sub Hub. Bài viết đi sâu vào việc sử dụng Amazon SNS, Lambda và DynamoDB để tạo ra hệ thống linh hoạt, dễ mở rộng và tách biệt các thành phần xử lý dữ liệu nhạy cảm.
