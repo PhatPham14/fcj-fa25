@@ -49,7 +49,7 @@ Bằng việc tận dụng các Endpoint này, hệ thống loại bỏ sự c�
 * **GitLab** được sử dụng để quản lý mã nguồn và quy trình CI/CD, tự động đẩy các bản triển khai lên Amplify (cho Frontend) và các image lên ECR (cho Backend).
 * **Amazon CloudWatch** đảm bảo việc giám sát hệ thống toàn diện và ghi log (logging) cho tất cả các dịch vụ.
 
-![APEX-EV Platform Architecture](/images/2-Proposal/RengenZ.jpg)
+![APEX-EV Platform Architecture](/images/2-Proposal/RegenZ.jpg)
 
 *Dịch vụ AWS sử dụng*  
 - *Route 53*: Dịch vụ DNS, chịu trách nhiệm định tuyến tên miền (Edge layer) đến ứng dụng.  

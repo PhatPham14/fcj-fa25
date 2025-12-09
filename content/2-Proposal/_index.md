@@ -48,7 +48,7 @@ By leveraging these endpoints, the system eliminates the need for a NAT Gateway,
 
 * **GitLab** is used for source code management and CI/CD, automatically pushing deployments to Amplify (Frontend) and container images to ECR (Backend).
 
-![APEX-EV Platform Architecture](/images/2-Proposal/RengenZ.jpg)
+![APEX-EV Platform Architecture](/images/2-Proposal/RegenZ.jpg)
 
 ### AWS Services Used
 - *Route 53*: DNS service, responsible for routing the domain (Edge layer) to the application. 
