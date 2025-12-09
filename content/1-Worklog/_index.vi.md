@@ -1,38 +1,41 @@
 ---
-title: "Nhật ký công việc"
+title: "Worklog"
 date: 2025-09-08
 weight: 1
 chapter: false
 pre: " <b> 1. </b> "
 ---
 
+**Trên trang này**, tôi xin giới thiệu tổng quan về nhật ký công việc (worklog) của mình.
 
+**Quá trình thực hiện:** Tôi đã hoàn thành worklog này thông qua việc tham gia chương trình thực tập **First Cloud Journey**. Phương pháp làm việc bao gồm sự kết hợp giữa tự nghiên cứu lý thuyết trên AWS Skill Builder/Coursera và thực hành triển khai một dự án nhóm (Group Project) thực tế.
 
-**Trong trang này** bạn sẽ cần giới thiệu worklog của bạn **như thế nào**? Bạn hoàn thành chương trình trong vòng **bao nhiêu tuần**? Bạn **đã làm gì** trong các tuần đó?
+**Thời gian:** Chương trình kéo dài **12 tuần** (khoảng 3 tháng).
 
+**Tổng quan công việc:** Trong 12 tuần này, tôi đi từ việc tiếp cận các khái niệm Cloud cơ bản, học kỹ năng mềm, cho đến việc thiết kế kiến trúc, lập trình, triển khai DevOps và bảo mật cho một ứng dụng hoàn chỉnh trên AWS.
 
-Thông thường và cũng là tiêu chuẩn, một worklog được thực hiện trong khoảng 3 tháng (trong suốt thời gian thực tập) với nội dung các tuần như sau:
+Dưới đây là nội dung chi tiết từng tuần:
 
-**Tuần 1:** [Làm quen với AWS và các dịch vụ cơ bản trong AWS](1.1-week1/)
+**Week 1:** [Làm quen văn hóa FCJ và tìm hiểu các dịch vụ AWS cơ bản](1.1-week1/)
 
-**Tuần 2:** [Làm công việc A...](1.2-week2/)
+**Week 2:** [Tìm hiểu sâu IAM, CLI và phương pháp nghiên cứu (Coursera)](1.2-week2/)
 
-**Tuần 3:** [Làm công việc B...](1.3-week3/)
+**Week 3:** [Cân bằng tải (ELB), Auto Scaling và giám sát hệ thống (CloudWatch)](1.3-week3/)
 
-**Tuần 4:** [Làm công việc C...](1.4-week4/)
+**Week 4:** [Mạng nâng cao (DNS, CDN) và thiết kế kiến trúc dự án](1.4-week4/)
 
-**Tuần 5:** [Làm công việc D...](1.5-week5/)
+**Week 5:** [Database (NoSQL), hoàn thành Coursera và khởi tạo dự án](1.5-week5/)
 
-**Tuần 6:** [Làm công việc E...](1.6-week6/)
+**Week 6:** [Containerization (Docker/ECS) và phát triển Backend](1.6-week6/)
 
-**Tuần 7:** [Làm công việc G...](1.7-week7/)
+**Week 7:** [Triển khai DevOps: CI/CD Pipeline và Automation](1.7-week7/)
 
-**Tuần 8:** [Làm công việc H...](1.8-week8/)
+**Week 8:** [Phát triển Frontend, tích hợp hệ thống và Serverless](1.8-week8/)
 
-**Tuần 9:** [Làm công việc I...](1.9-week9/)
+**Week 9:** [Bảo mật hệ thống (Security) và Refactor code](1.9-week9/)
 
-**Tuần 10:** [Làm công việc L...](1.10-week10/)
+**Week 10:** [Kiểm thử hiệu năng (Load Test) và tối ưu hóa chi phí](1.10-week10/)
 
-**Tuần 11:** [Làm công việc M...](1.11-week11/)
+**Week 11:** [Viết tài liệu kỹ thuật và hoàn thiện sản phẩm](1.11-week11/)
 
-**Tuần 12:** [Làm công việc N...](1.12-week12/)
+**Week 12:** [Thuyết trình Demo sản phẩm và tổng kết hành trình](1.12-week12/)
