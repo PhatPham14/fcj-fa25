@@ -1,124 +1,120 @@
 ---
-title: "Blog 1"
-date: 2025-09-08
-weight: 1
+title: "Characteristics of Financial Services HPC Workloads on the Cloud"
+date: 2025-04-15
+weight: 10
 chapter: false
-pre: " <b> 3.1. </b> "
+pre: " <b> 2.1. </b> "
+tags:
+  - FSI
+  - HPC
+  - Best Practices
 ---
 
+**By Mark Norton and Flamur Gogolli**
 
-# Getting Started with Healthcare Data Lakes: Using Microservices
-
-Data lakes can help hospitals and healthcare facilities turn data into business insights, maintain business continuity, and protect patient privacy. A **data lake** is a centralized, managed, and secure repository to store all your data, both in its raw and processed forms for analysis. Data lakes allow you to break down data silos and combine different types of analytics to gain insights and make better business decisions.
-
-This blog post is part of a larger series on getting started with setting up a healthcare data lake. In my final post of the series, *“Getting Started with Healthcare Data Lakes: Diving into Amazon Cognito”*, I focused on the specifics of using Amazon Cognito and Attribute Based Access Control (ABAC) to authenticate and authorize users in the healthcare data lake solution. In this blog, I detail how the solution evolved at a foundational level, including the design decisions I made and the additional features used. You can access the code samples for the solution in this Git repo for reference.
-
----
-
-## Architecture Guidance
-
-The main change since the last presentation of the overall architecture is the decomposition of a single service into a set of smaller services to improve maintainability and flexibility. Integrating a large volume of diverse healthcare data often requires specialized connectors for each format; by keeping them encapsulated separately as microservices, we can add, remove, and modify each connector without affecting the others. The microservices are loosely coupled via publish/subscribe messaging centered in what I call the “pub/sub hub.”
-
-This solution represents what I would consider another reasonable sprint iteration from my last post. The scope is still limited to the ingestion and basic parsing of **HL7v2 messages** formatted in **Encoding Rules 7 (ER7)** through a REST interface.
-
-**The solution architecture is now as follows:**
-
-> *Figure 1. Overall architecture; colored boxes represent distinct services.*
+This post introduces the requirements of High Performance Computing (HPC) in the Financial Services Industry (FSI). It defines the technical attributes of compute-heavy workloads and provides a decision tree process to help customers select the right HPC platform on AWS.
 
 ---
 
-While the term *microservices* has some inherent ambiguity, certain traits are common:  
-- Small, autonomous, loosely coupled  
-- Reusable, communicating through well-defined interfaces  
-- Specialized to do one thing well  
-- Often implemented in an **event-driven architecture**
+### HPC in Financial Services
 
-When determining where to draw boundaries between microservices, consider:  
-- **Intrinsic**: technology used, performance, reliability, scalability  
-- **Extrinsic**: dependent functionality, rate of change, reusability  
-- **Human**: team ownership, managing *cognitive load*
+In the financial services sector, HPC (also known as Grid computing) has long been used to run simulations and solve complex challenges.
+
+* **Capital Markets:** Pricing financial instruments (stocks, ETFs, derivatives, bonds) using mathematical models like Monte Carlo. Workloads range from real-time/intraday latency-sensitive calculations to large batch workloads running overnight for risk monitoring.
+* **Investment Management:** Risk analysis, exposure calculation, and strategy optimization/back-testing.
+* **Insurance:** Actuarial modeling and catastrophe simulations to determine premiums and risk mitigation strategies.
 
 ---
 
-## Technology Choices and Communication Scope
+### Cloud Adoption Patterns in FSI
 
-| Communication scope                       | Technologies / patterns to consider                                                        |
-| ----------------------------------------- | ------------------------------------------------------------------------------------------ |
-| Within a single microservice              | Amazon Simple Queue Service (Amazon SQS), AWS Step Functions                               |
-| Between microservices in a single service | AWS CloudFormation cross-stack references, Amazon Simple Notification Service (Amazon SNS) |
-| Between services                          | Amazon EventBridge, AWS Cloud Map, Amazon API Gateway                                      |
+Financial institutions often migrate their HPC platforms to the cloud in phases to address fluctuating resource demands (e.g., end-of-quarter reporting).
 
----
 
-## The Pub/Sub Hub
 
-Using a **hub-and-spoke** architecture (or message broker) works well with a small number of tightly related microservices.  
-- Each microservice depends only on the *hub*  
-- Inter-microservice connections are limited to the contents of the published message  
-- Reduces the number of synchronous calls since pub/sub is a one-way asynchronous *push*
+Here are the common cloud adoption levels:
 
-Drawback: **coordination and monitoring** are needed to avoid microservices processing the wrong message.
+1.  **All On-premises:** Scheduler, compute, and data are hosted entirely on-site.
+2.  **Hybrid Burst:** Scheduler remains on-premises, but compute capacity bursts to the cloud during peak demand.
+3.  **Lift and Shift:** The existing scheduler and compute nodes are moved "as-is" to the cloud.
+4.  **AWS Optimized:** Focuses on compute elasticity, using managed services, and optimizing purchase models (Spot, Savings Plans).
+5.  **AWS Native:** Complete re-imagining using cloud-native architectures, serverless building blocks, and optimized hardware (AI accelerators, next-gen chips).
 
 ---
 
-## Core Microservice
+### Workload Characteristics for Architecture Decisions
 
-Provides foundational data and communication layer, including:  
-- **Amazon S3** bucket for data  
-- **Amazon DynamoDB** for data catalog  
-- **AWS Lambda** to write messages into the data lake and catalog  
-- **Amazon SNS** topic as the *hub*  
-- **Amazon S3** bucket for artifacts such as Lambda code
+To select the right platform, consider the following workload attributes:
 
-> Only allow indirect write access to the data lake through a Lambda function → ensures consistency.
+* **Task Duration:** Ranging from seconds to days.
+* **High Throughput:** Requirements often reach tens of thousands of tasks per second.
+* **Parallelization:** Loosely coupled calculations allowing parallel execution.
+* **Resource Intensity:** CPU/Memory/IO ratios.
+* **Software Requirements:** OS, libraries, dependencies.
+* **Cost Optimization:** Balancing performance vs. resource efficiency.
 
----
+Use the decision tree below to guide your platform selection:
 
-## Front Door Microservice
 
-- Provides an API Gateway for external REST interaction  
-- Authentication & authorization based on **OIDC** via **Amazon Cognito**  
-- Self-managed *deduplication* mechanism using DynamoDB instead of SNS FIFO because:  
-  1. SNS deduplication TTL is only 5 minutes  
-  2. SNS FIFO requires SQS FIFO  
-  3. Ability to proactively notify the sender that the message is a duplicate  
+
+> *Figure 1. Decision tree for selecting an HPC solution on the cloud based on workload characteristics.*
+
+The critical decision starts with: **Migrating an existing Scheduler** vs. **Building a new Cloud-native solution**.
 
 ---
 
-## Staging ER7 Microservice
+### 1. Migrating Your Existing Scheduler to the Cloud
 
-- Lambda “trigger” subscribed to the pub/sub hub, filtering messages by attribute  
-- Step Functions Express Workflow to convert ER7 → JSON  
-- Two Lambdas:  
-  1. Fix ER7 formatting (newline, carriage return)  
-  2. Parsing logic  
-- Result or error is pushed back into the pub/sub hub  
+If you choose to keep your existing Grid scheduler due to migration effort concerns or project timelines:
+
+* **Commercial Schedulers:** IBM Spectrum Symphony, TIBCO DataSynapse GridServer®.
+* **Open-source Schedulers:** Slurm Workload Manager, HTCondor.
+
+Common approaches include **Hybrid Burst** or **Lift-and-Shift**. While offering a familiar interface, this approach retains legacy limitations regarding licensing and complex infrastructure management.
+
+### 2. Building and Using a Cloud-Native HPC Scheduler
+
+This approach reduces operational burden and maximizes cloud benefits. The decision is heavily influenced by **Task Duration**:
+
+#### A. Mixed Short and Long Tasks (Seconds to Minutes)
+* **Slurm on AWS:** Use **AWS ParallelCluster** (open-source cluster management) or **AWS Parallel Computing Service** (fully managed).
+
+#### B. Long Tasks (> 1 Minute)
+* **AWS Batch:** Fully managed batch computing service. The scheduler is free; you only pay for the compute resources used.
+
+#### C. High Throughput (Seconds to Minutes)
+* **HTC-Grid:** A community project (originally an AWS blueprint, now part of FINOS) designed for high-throughput processing of tens of thousands of tasks per second.
+
+#### D. Short Tasks (< 15 Minutes)
+* **AWS Lambda:** Leverage serverless architecture. No "always-on" server management is required; ideal for high throughput but subject to strict execution time limits.
+
+
 
 ---
 
-## New Features in the Solution
+### Conclusion & Key Takeaways
 
-### 1. AWS CloudFormation Cross-Stack References
-Example *outputs* in the core microservice:
-```yaml
-Outputs:
-  Bucket:
-    Value: !Ref Bucket
-    Export:
-      Name: !Sub ${AWS::StackName}-Bucket
-  ArtifactBucket:
-    Value: !Ref ArtifactBucket
-    Export:
-      Name: !Sub ${AWS::StackName}-ArtifactBucket
-  Topic:
-    Value: !Ref Topic
-    Export:
-      Name: !Sub ${AWS::StackName}-Topic
-  Catalog:
-    Value: !Ref Catalog
-    Export:
-      Name: !Sub ${AWS::StackName}-Catalog
-  CatalogArn:
-    Value: !GetAtt Catalog.Arn
-    Export:
-      Name: !Sub ${AWS::StackName}-CatalogArn
+There is no "one-size-fits-all" solution. Your choice depends on your strategy:
+
+1.  **Maintaining Existing Schedulers:**
+    * *Commercial:* IBM Symphony, Tibco (Enterprise reliability but may lack flexibility).
+    * *Open-source:* Slurm, HTCondor (Use AWS ParallelCluster for easier management).
+
+2.  **Moving to Cloud-Native:**
+    * *Workloads > 5 minutes:* **AWS Batch**.
+    * *Workloads < 15 minutes:* **AWS Lambda**.
+    * *High throughput (seconds-minutes):* **HTC-Grid** or custom container-based solutions.
+
+Ideally, view this decision as the start of a journey. Customers often progress "down the stack" from "Lift & Shift" to "AWS Native" over time.
+
+---
+
+#### About the Authors
+
+> **Mark Norton**
+>
+> Principal HPC Specialist at AWS with over 30 years of experience. He specializes in designing scalable cloud solutions for the financial, automotive, and research sectors.
+
+> **Flamur Gogolli**
+>
+> Senior Specialist Solutions Architect at AWS. Formerly with JP Morgan, he has extensive experience in infrastructure modernization, Cloud-native architectures, Containers, and DevOps.
