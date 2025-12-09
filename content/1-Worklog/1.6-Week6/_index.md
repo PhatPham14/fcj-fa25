@@ -1,55 +1,26 @@
 ---
 title: "Week 6 Worklog"
+date: 2025-10-13
 weight: 6
 chapter: false
 pre: " <b> 1.6. </b> "
 ---
 
-### Week 6 Objectives
+### Week 6 Objectives:
 
-- Explore and practice AWS **Data & Analytics** services.  
-- Learn and experiment with **Machine Learning (ML)** services such as **SageMaker** and **Rekognition**.  
-- Strengthen skills in **monitoring, auditing, and system performance optimization** using CloudWatch, CloudTrail, and Trusted Advisor.  
-- Study **Advanced Identity Management** in AWS, including IAM Roles, Federated Access, and AWS SSO.
+- Focus on Group Project development: Backend API.
+- Learn about Containers on AWS.
 
-**Time Period:** 03/11/2025 - 09/11/2025
+### Tasks to be carried out this week:
 
----
+| Day | Task | Start Date | Completion Date | Reference Material |
+| --- | --- | --- | --- | --- |
+| 1 | - **AWS:** Learn about Docker and Amazon ECS/EKS or Lightsail Containers. <br> - Create a Dockerfile for a sample app. | 10/13/2025 | 10/13/2025 | <https://cloudjourney.awsstudygroup.com/> |
+| 2 | - **Project:** Code main Backend functions (Authentication, User Management). <br> - Design API Specs. | 10/14/2025 | 10/14/2025 | |
+| 3 | - **Project:** Connect Backend with Database (RDS/DynamoDB). | 10/15/2025 | 10/15/2025 | |
+| 4 | - **AWS:** Lab: Deploy a simple container app to ECS Fargate. | 10/16/2025 | 10/16/2025 | <https://cloudjourney.awsstudygroup.com/> |
 
-### Weekly Task Overview
+### Week 6 Achievements:
 
-| Day | Activity                                                                                                                                                                                                                                                             | Start Date   | End Date     | Reference                                 |
-| --- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | ------------ | ----------------------------------------- |
-| 1   | - Study **Databases in AWS** <br> + Compare relational vs. NoSQL databases <br> + Create test databases using **RDS** and **DynamoDB** <br> + Explore **Redshift** and **ElastiCache** for query acceleration                                                          | 2025-11-03   | 2025-11-03   | <https://aws.amazon.com/databases/>       |
-| 2   | - Research **Advanced Identity in AWS** <br> + Create and manage advanced IAM Roles <br> + Learn about **Federated Access** <br> + Configure **AWS SSO** and test multi-account access                                                                               | 2025-11-04   | 2025-11-04   | <https://aws.amazon.com/iam/>             |
-| 3   | - Analyze requirements for the **Mini-Market System Project** <br> + Identify core modules: Products, Inventory, Billing–Payment, Users <br> + Build **Use Cases**, **Entity Diagrams**, and business requirement documentation                                      | 2025-11-05   | 2025-11-05   | -                                         |
-| 4   | - Design the **Solution Architecture** for the system <br> + Choose **.NET 3-tier Architecture** <br> + Apply **Repository Pattern** & **Unit of Work Pattern** <br> + Design backend diagram, database structure, and user permission model                           | 2025-11-06   | 2025-11-06   | <https://aws.amazon.com/architecture/>    |
-| 5   | - Summaries and consolidate weekly knowledge <br> + Review advanced architecture, IoT, and AWS Whitepapers <br> + Compare **Hybrid**, **Multi-Cloud**, and **Serverless** architectures                                         | 2025-11-07   | 2025-11-07   | <https://aws.amazon.com/cloudwatch/>      |
-| 6   | - Learn more about **Advanced Identity in AWS** <br> + Create and manage advanced **IAM Roles** <br> + Begin preparing content for the **AWS Cloud Journey Final Report**                                                       | 2025-11-08   | 2025-11-08   | <https://aws.amazon.com/iam/>             |
-
----
-
-### Week 6 Achievements
-
-- Mastered core concepts of **AWS Data & Analytics**:
-  - Understood data analysis workflows using **Athena**, **Glue**, **EMR**, and **Kinesis**.  
-  - Queried S3 data with **Athena** and built a basic ETL pipeline using **Glue**.  
-  - Created a real-time data streaming pipeline using **Kinesis Data Stream**.  
-
-- Progressed in **Machine Learning on AWS**:
-  - Trained and deployed a sample model using **SageMaker**.  
-  - Used **Amazon Rekognition** for face and object detection in images.  
-  - Explored additional ML services such as **Comprehend**, **Translate**, and **Textract**.  
-
-- Developed strong skills in **system monitoring and auditing**:
-  - Monitored metrics and logs with **CloudWatch**.  
-  - Tracked API activities using **CloudTrail**.  
-  - Reviewed recommendations from **Trusted Advisor** to improve performance and reduce cost.  
-
-- Gained deeper understanding of **Advanced Identity Management**:
-  - Created and applied IAM Roles following the **least privilege** principle.  
-  - Learned how **Federated Access** allows login via organizational identity providers.  
-  - Configured **AWS SSO** for secure multi-account access.  
-
-- Strengthened the integration of **Data, Machine Learning, Monitoring, and Security** concepts, preparing for next week’s topics on **Automation & Infrastructure as Code (IaC)**.
-
+- Understood Containerization concepts and ECS.
+- Completed core modules of the Backend project.
