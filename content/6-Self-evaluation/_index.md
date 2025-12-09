@@ -1,37 +1,38 @@
 ---
 title: "Self-Assessment"
-date: 2025-09-08
+date: 2025-11-27
 weight: 6
 chapter: false
 pre: " <b> 6. </b> "
 ---
 
+During my internship at **Amazon Web Services (AWS) - First Cloud Journey (FCJ)** from **September 10, 2025** to **November 27, 2025**, I had the valuable opportunity to gain both theoretical knowledge and hands-on experience on the AWS platform.
 
+I directly participated in **deeply researching AWS services and building a Group Project with a hybrid architecture combining Serverless and Managed Services**. Through this, I significantly improved my skills in **System Architecture Design (Solution Architecture), DevOps implementation (CI/CD), Backend programming, Technical writing, and Teamwork**.
 
-During my internship at **[Company/Organization Name]** from **[start date]** to **[end date]**, I had the opportunity to learn, practice, and apply the knowledge acquired in school to a real-world working environment.  
-I participated in **[briefly describe the main project or task]**, through which I improved my skills in **[list skills: programming, analysis, reporting, communication, etc.]**.  
+Regarding professional conduct, I maintained a high level of proactivity in my work and collaborated well with fellow FCJers. However, I am also clearly aware of my limitations regarding discipline and communication, and I have a plan to address them in the future.
 
-In terms of work ethic, I always strived to complete tasks well, complied with workplace regulations, and actively engaged with colleagues to improve work efficiency.
+To objectively reflect on the internship process, I would like to self-assess based on the criteria below:
 
-To objectively reflect on my internship period, I would like to evaluate myself based on the following criteria:
+| No. | Criteria | Description | Good | Fair | Average |
+| :---: | :--- | :--- | :---: | :---: | :---: |
+| 1 | **Professional Knowledge & Skills** | Understanding of AWS, application in real projects, tool proficiency (Git, CLI, IDE), code quality, and architecture | ✅ | ☐ | ☐ |
+| 2 | **Learning Ability** | Ability to acquire new technologies (Docker, Serverless, NoSQL) and best practices quickly | ☐ | ✅ | ☐ |
+| 3 | **Proactivity** | Self-researching documentation, accepting difficult tasks, and proposing solutions without waiting for detailed instructions | ✅ | ☐ | ☐ |
+| 4 | **Sense of Responsibility** | Commitment to completing work on time (Deadlines), ensuring project output quality | ✅ | ☐ | ☐ |
+| 5 | **Discipline** | Adherence to timekeeping, regulations, workflows, and periodic reporting | ☐ | ☐ | ✅ |
+| 6 | **Growth Mindset** | Willingness to receive feedback from Mentors/colleagues and making changes to improve oneself | ☐ | ✅ | ☐ |
+| 7 | **Communication** | Presenting technical ideas, reporting progress, and discussing within the group | ☐ | ✅ | ☐ |
+| 8 | **Team Collaboration** | Coordinating smoothly with members, supporting each other when encountering bugs, avoiding blame | ✅ | ☐ | ☐ |
+| 9 | **Professional Conduct** | Respecting colleagues, Mentors, and the general culture of the FCJ organization | ✅ | ☐ | ☐ |
+| 10 | **Problem Solving Mindset** | Identifying the root cause of errors, proposing optimal and creative solutions | ☐ | ✅ | ☐ |
+| 11 | **Contribution to Project/Org** | Actual work efficiency, contribution to the success of the Final Showcase | ✅ | ☐ | ☐ |
+| 12 | **Overall** | General assessment of the entire internship process and results achieved | ✅ | ☐ | ☐ |
 
-| No. | Criteria                            | Description                                                                                      | Good | Fair | Average |
-| --- | ----------------------------------- | ------------------------------------------------------------------------------------------------ | ---- | ---- | ------- |
-| 1   | **Professional knowledge & skills** | Understanding of the field, applying knowledge in practice, proficiency with tools, work quality | ✅    | ☐    | ☐       |
-| 2   | **Ability to learn**                | Ability to absorb new knowledge and learn quickly                                                | ☐    | ✅    | ☐       |
-| 3   | **Proactiveness**                   | Taking initiative, seeking out tasks without waiting for instructions                            | ✅    | ☐    | ☐       |
-| 4   | **Sense of responsibility**         | Completing tasks on time and ensuring quality                                                    | ✅    | ☐    | ☐       |
-| 5   | **Discipline**                      | Adhering to schedules, rules, and work processes                                                 | ☐    | ☐    | ✅       |
-| 6   | **Progressive mindset**             | Willingness to receive feedback and improve oneself                                              | ☐    | ✅    | ☐       |
-| 7   | **Communication**                   | Presenting ideas and reporting work clearly                                                      | ☐    | ✅    | ☐       |
-| 8   | **Teamwork**                        | Working effectively with colleagues and participating in teams                                   | ✅    | ☐    | ☐       |
-| 9   | **Professional conduct**            | Respecting colleagues, partners, and the work environment                                        | ✅    | ☐    | ☐       |
-| 10  | **Problem-solving skills**          | Identifying problems, proposing solutions, and showing creativity                                | ☐    | ✅    | ☐       |
-| 11  | **Contribution to project/team**    | Work effectiveness, innovative ideas, recognition from the team                                  | ✅    | ☐    | ☐       |
-| 12  | **Overall**                         | General evaluation of the entire internship period                                               | ✅    | ☐    | ☐       |
+### Personal Improvement Plan (Next Steps)
 
-### Needs Improvement
+Based on the assessment above, I recognize my strengths in **technical expertise and proactivity**, but I need to seriously address the following weaknesses to become a more professional engineer:
 
-* Strengthen discipline and strictly comply with the rules and regulations of the company or any organization  
-* Improve problem-solving thinking  
-* Enhance communication skills in both daily interactions and professional contexts, including handling situations effectively
+* **Enhance Discipline:** I realize I need to be stricter with myself regarding punctuality and administrative regulations. I will practice the habit of checking in/out on time and strictly adhering to reporting procedures (worklogs) without needing reminders.
+* **Improve Problem-Solving Mindset:** Although I can resolve tasks, I want to cultivate a multidimensional perspective. Instead of just finding a solution to "make the code run," I will focus on deeply analyzing the performance, cost, and security of that solution.
+* **Learn Effective Communication:** I will focus on improving my presentation skills, specifically articulating complex technical issues concisely and clearly. Simultaneously, I will practice calmness and tact when handling conflicting situations or defending personal viewpoints.
