@@ -41,4 +41,4 @@ Các điểm bảo mật & best-practice
 
 Kiến trúc này cân bằng giữa bảo mật cấp doanh nghiệp và mô hình serverless tối ưu chi phí, đồng thời cung cấp lộ trình thực tế để áp dụng dần các tính năng nâng cao (observability, DR đa vùng, AI dựa trên Bedrock).
 
-![overview](/images/aws_architecture-finish.drawio.png)
+![APEX-EV Platform Architecture](/images/2-Proposal/RegenZ.jpg)
