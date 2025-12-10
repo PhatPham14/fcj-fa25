@@ -41,4 +41,4 @@ Security and best-practice highlights
 
 This architecture balances enterprise-grade security with cost-effective serverless patterns and provides a pragmatic path for incremental adoption of advanced features (observability, multi-region DR, Bedrock-powered AI).
 
-![overview](/images/aws_architecture-finish.drawio.png)
+![APEX-EV Platform Architecture](/images/2-Proposal/RegenZ.jpg)
